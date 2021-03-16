@@ -2,4 +2,81 @@
   box-sizing: border-box;
 }
 
+:root {
+  font-size: 16px;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+.header {
+  padding-top: 32px;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+.header-logo {
+  width: 256px;
+  height: 64px;
+  margin-bottom: 32px;
+}
+.header-logo a {
+  display: block;
+}
+.header-logo img {
+  max-width: 100%;
+  width: 100%;
+  height: 100%;
+}
+.header-nav {
+  width: 100%;
+  padding: 16px 0;
+  display: flex;
+  justify-content: space-evenly;
+  background-color: #00a3f1;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.4);
+}
+.header-nav a {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #f1f1f1;
+  text-transform: uppercase;
+}
+
+.main-hero {
+  padding: 128px 0;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #00a3f1;
+}
+.main-hero .hero-img {
+  width: 480px;
+}
+.main-hero .hero-img img {
+  width: 100%;
+}
+.main-hero .hero-description {
+  width: 40%;
+  color: #f1f1f1;
+}
+.main-hero .hero-description h1 {
+  font-size: 6rem;
+}
+.main-hero .hero-description a {
+  width: 128px;
+  height: 48px;
+  line-height: 48px;
+  margin-top: 64px;
+  border-radius: 48px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.1rem;
+  background-color: #fadc00;
+  display: inline-block;
+}
+
 /*# sourceMappingURL=styles.css.map */
