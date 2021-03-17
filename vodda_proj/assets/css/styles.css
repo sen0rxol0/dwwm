@@ -6,6 +6,10 @@
   font-size: 16px;
 }
 
+body {
+  font-family: "Noto Sans JP", sans-serif;
+}
+
 a {
   text-decoration: none;
   color: #000;
@@ -52,7 +56,7 @@ h3 {
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.4);
 }
 .header-nav a {
-  font-weight: 600;
+  font-weight: 500;
   color: #f1f1f1;
   text-transform: uppercase;
 }
@@ -103,16 +107,18 @@ h3 {
   color: #f1f1f1;
 }
 .main-hero .hero-description h1 {
-  font-size: 6rem;
+  margin: 0.5em 0;
+  font-size: 4rem;
+  font-weight: 900;
 }
 .main-hero .hero-description a {
   width: 128px;
   height: 48px;
-  line-height: 48px;
-  margin-top: 64px;
+  line-height: 2.4;
+  margin-top: 32px;
   border-radius: 48px;
   text-align: center;
-  font-weight: 600;
+  font-weight: 500;
   font-size: 1.1rem;
   background-color: #fadc00;
   display: inline-block;
@@ -145,7 +151,7 @@ h3 {
   align-items: center;
 }
 .main-products .product h3.product-title {
-  margin: 0.3em 0 0.5em 16px;
+  margin: 0.1em 0 0.5em 16px;
 }
 .main-products .product p.product-description {
   margin-left: 16px;
@@ -170,16 +176,16 @@ h3 {
 .main-clients h2 {
   margin: 1em 0;
   text-align: center;
-  font-weight: 800;
+  font-weight: 900;
 }
 .main-clients a {
-  max-width: 156px;
+  max-width: 256px;
   padding: 0 16px;
   height: 48px;
-  line-height: 48px;
+  line-height: 2.4;
   margin: 0 auto;
   border-radius: 48px;
-  font-weight: 600;
+  font-weight: 500;
   font-size: 1.1rem;
   text-align: center;
   background-color: #fadc00;
