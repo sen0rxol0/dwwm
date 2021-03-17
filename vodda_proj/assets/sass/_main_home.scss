@@ -46,7 +46,7 @@
             display: flex;
             flex-flow: row wrap;
             justify-content: center;
-            
+
             // &:last-child {
             //     .product {
             //         border-top: none;
@@ -103,6 +103,46 @@
     }
 
     &-clients {
+        padding-top: 64px;
 
+        h2 {
+            margin: 1em 0;
+            text-align: center;
+            font-weight: 800;
+        }
+
+        a {
+            width: 128px;
+            margin: 0 auto;
+            display: block;
+            text-align: center;
+        }
+
+        .clients {
+            padding-top: 64px;
+            display: flex;
+            justify-content: space-evenly;
+
+            h4 {
+                margin: 1em 0;
+                font-size: 1.2rem;
+            }
+
+            img {
+                max-width: 128px;
+            }
+
+            p {
+                margin: 1em 0;
+                text-align: center;
+            }
+
+            &-review {
+                width: 256px;
+                display: flex;
+                flex-flow: column nowrap;
+                align-items: center;
+            }
+        }
     }
 }

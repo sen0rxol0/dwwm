@@ -12,11 +12,11 @@ a {
 }
 
 h1 {
-  font-size: 2rem;
+  font-size: 2.2rem;
 }
 
 h2 {
-  font-size: 1.7rem;
+  font-size: 1.8rem;
 }
 
 h3 {
@@ -137,6 +137,42 @@ h3 {
 }
 .main-products img[alt=Chevron] {
   width: 32px;
+}
+.main-clients {
+  padding-top: 64px;
+}
+.main-clients h2 {
+  margin: 1em 0;
+  text-align: center;
+  font-weight: 800;
+}
+.main-clients a {
+  width: 128px;
+  margin: 0 auto;
+  display: block;
+  text-align: center;
+}
+.main-clients .clients {
+  padding-top: 64px;
+  display: flex;
+  justify-content: space-evenly;
+}
+.main-clients .clients h4 {
+  margin: 1em 0;
+  font-size: 1.2rem;
+}
+.main-clients .clients img {
+  max-width: 128px;
+}
+.main-clients .clients p {
+  margin: 1em 0;
+  text-align: center;
+}
+.main-clients .clients-review {
+  width: 256px;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
 }
 
 /*# sourceMappingURL=styles.css.map */
