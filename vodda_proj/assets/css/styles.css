@@ -49,18 +49,27 @@ h3 {
 }
 .header-nav {
   width: 100%;
-  padding: 16px 0;
+  padding: 16px;
   display: flex;
-  justify-content: space-evenly;
+  flex-flow: column nowrap;
   background-color: #00a3f1;
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.4);
 }
 .header-nav a {
+  height: 24px;
+  line-height: 1.4;
   font-weight: 500;
   color: #f1f1f1;
   text-transform: uppercase;
 }
 
+@media (min-width: 719px) {
+  .header-nav {
+    padding: 16px 0;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+  }
+}
 .footer {
   padding: 64px 0;
   display: flex;
@@ -91,19 +100,18 @@ h3 {
 .main-hero {
   padding: 128px 0;
   display: flex;
-  flex-direction: row-reverse;
-  justify-content: space-evenly;
+  flex-direction: column-reverse;
   align-items: center;
   background-color: #00a3f1;
 }
 .main-hero .hero-img {
-  width: 480px;
+  width: 320px;
 }
 .main-hero .hero-img img {
   width: 100%;
 }
 .main-hero .hero-description {
-  width: 40%;
+  width: 90%;
   color: #f1f1f1;
 }
 .main-hero .hero-description h1 {
@@ -129,12 +137,12 @@ h3 {
 }
 .main-products-col {
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: row nowrap;
   justify-content: center;
 }
 .main-products .product {
-  width: 256px;
-  padding: 32px 0;
+  width: 100%;
+  padding: 32px 0 64px;
   border: 1px solid #000;
   border-top: 0;
 }
@@ -157,11 +165,11 @@ h3 {
   margin-left: 16px;
 }
 .main-products .product-img {
-  width: 128px;
-  height: 128px;
+  width: 256px;
+  height: 256px;
 }
 .main-products .product-info {
-  width: 100%;
+  width: 320px;
   padding: 32px 32px 0;
   display: flex;
   flex-flow: row-reverse nowrap;
@@ -213,6 +221,32 @@ h3 {
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
+}
+
+@media (min-width: 719px) {
+  .main-hero .hero-description {
+    width: 80%;
+  }
+}
+@media (min-width: 839px) {
+  .main-hero {
+    flex-direction: row-reverse;
+    justify-content: space-evenly;
+  }
+  .main-hero .hero-description {
+    width: 60%;
+  }
+  .main-hero .hero-img {
+    width: 352px;
+  }
+}
+@media (min-width: 1023px) {
+  .main-hero .hero-description {
+    width: 40%;
+  }
+  .main-hero .hero-img {
+    width: 480px;
+  }
 }
 
 /*# sourceMappingURL=styles.css.map */
