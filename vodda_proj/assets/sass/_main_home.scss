@@ -112,10 +112,17 @@
         }
 
         a {
-            width: 128px;
+            max-width: 156px;
+            padding: 0 16px;
+            height: 48px;
+            line-height: 48px;
             margin: 0 auto;
-            display: block;
+            border-radius: 48px;
+            font-weight: 600;
+            font-size: 1.1rem;
             text-align: center;
+            background-color: rgb(250, 220, 0);
+            display: block;
         }
 
         .clients {
@@ -126,6 +133,7 @@
             h4 {
                 margin: 1em 0;
                 font-size: 1.2rem;
+                font-weight: 600;
             }
 
             img {

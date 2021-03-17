@@ -1,0 +1,36 @@
+.footer {
+    padding: 64px 0;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+
+    &-logo {
+
+        a {
+            display: inline-block;
+        }
+    }
+
+    &-nav {
+        display: flex;
+        flex-flow: row nowrap;
+
+        span:last-child {
+            margin-left: 32px;
+        }
+
+        a {
+            padding: 0 16px;
+            height: 32px;
+            line-height: 32px;
+            display: block;
+        }
+    }
+
+    &-links {
+        h5 {
+            margin: 1em 0;
+            text-align: center;
+        }
+    }
+}

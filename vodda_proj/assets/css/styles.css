@@ -52,10 +52,36 @@ h3 {
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.4);
 }
 .header-nav a {
-  font-size: 1.1rem;
   font-weight: 600;
   color: #f1f1f1;
   text-transform: uppercase;
+}
+
+.footer {
+  padding: 64px 0;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-evenly;
+}
+.footer-logo a {
+  display: inline-block;
+}
+.footer-nav {
+  display: flex;
+  flex-flow: row nowrap;
+}
+.footer-nav span:last-child {
+  margin-left: 32px;
+}
+.footer-nav a {
+  padding: 0 16px;
+  height: 32px;
+  line-height: 32px;
+  display: block;
+}
+.footer-links h5 {
+  margin: 1em 0;
+  text-align: center;
 }
 
 .main-hero {
@@ -147,10 +173,17 @@ h3 {
   font-weight: 800;
 }
 .main-clients a {
-  width: 128px;
+  max-width: 156px;
+  padding: 0 16px;
+  height: 48px;
+  line-height: 48px;
   margin: 0 auto;
-  display: block;
+  border-radius: 48px;
+  font-weight: 600;
+  font-size: 1.1rem;
   text-align: center;
+  background-color: #fadc00;
+  display: block;
 }
 .main-clients .clients {
   padding-top: 64px;
@@ -160,6 +193,7 @@ h3 {
 .main-clients .clients h4 {
   margin: 1em 0;
   font-size: 1.2rem;
+  font-weight: 600;
 }
 .main-clients .clients img {
   max-width: 128px;
