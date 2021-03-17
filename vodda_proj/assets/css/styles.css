@@ -78,5 +78,21 @@ a {
   background-color: #fadc00;
   display: inline-block;
 }
+.main-products {
+  display: flex;
+  flex-flow: row wrap;
+}
+.main-products .product {
+  width: calc(100% / 4);
+}
+.main-products .product a {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+.main-products .product-img {
+  width: 128px;
+  height: 128px;
+}
 
 /*# sourceMappingURL=styles.css.map */
