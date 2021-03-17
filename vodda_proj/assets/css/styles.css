@@ -11,6 +11,19 @@ a {
   color: #000;
 }
 
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.7rem;
+}
+
+h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
 .header {
   padding-top: 32px;
   display: flex;
@@ -80,19 +93,50 @@ a {
 }
 .main-products {
   display: flex;
+  flex-flow: column nowrap;
+}
+.main-products-col {
+  display: flex;
   flex-flow: row wrap;
+  justify-content: center;
 }
 .main-products .product {
-  width: calc(100% / 4);
+  width: 256px;
+  padding: 32px 0;
+  border: 1px solid #000;
+  border-top: 0;
+}
+.main-products .product:nth-child(odd):not(:first-child) {
+  border-right: none;
+  border-left: none;
+}
+.main-products .product:first-child {
+  border-right: none;
 }
 .main-products .product a {
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
 }
+.main-products .product h3.product-title {
+  margin: 0.3em 0 0.5em 16px;
+}
+.main-products .product p.product-description {
+  margin-left: 16px;
+}
 .main-products .product-img {
   width: 128px;
   height: 128px;
+}
+.main-products .product-info {
+  width: 100%;
+  padding: 32px 32px 0;
+  display: flex;
+  flex-flow: row-reverse nowrap;
+  justify-content: flex-end;
+}
+.main-products img[alt=Chevron] {
+  width: 32px;
 }
 
 /*# sourceMappingURL=styles.css.map */

@@ -39,26 +39,70 @@
 
     &-products {
         display: flex;
-        flex-flow: row wrap;
+        flex-flow: column nowrap;
+        // justify-content: center;
+
+        &-col {
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: center;
+            
+            // &:last-child {
+            //     .product {
+            //         border-top: none;
+            //     }
+            // }
+        }
 
         .product {
-            width: calc(100% / 4);
+            width: 256px;
+            padding: 32px 0;
+            border: 1px solid #000;
+            border-top: 0;
+
+            &:nth-child(odd):not(:first-child) {
+                border-right: none;
+                border-left: none;
+            }
+
+            &:first-child {
+                border-right: none;
+            }
 
             a {
                 display: flex;
                 flex-flow: column nowrap;
                 align-items: center;
             }
+
+            h3.product-title {
+                margin: .3em 0 .5em 16px;
+            }
+
+            p.product-description {
+                margin-left: 16px;
+            }
+
+            &-img {
+                width: 128px;
+                height: 128px;
+            }
+
+            &-info {
+                width: 100%;
+                padding: 32px 32px 0;
+                display: flex;
+                flex-flow: row-reverse nowrap;
+                justify-content: flex-end;
+            }
         }
 
-        .product-img {
-            width: 128px;
-            height: 128px;
+        img[alt="Chevron"] {
+            width: 32px;
         }
+    }
 
-        .product-info {
-            
-        }
+    &-clients {
 
     }
 }
