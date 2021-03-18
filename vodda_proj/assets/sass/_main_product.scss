@@ -1,12 +1,13 @@
 .main {
     &-product {
-        padding: 64px 0 128px;
+        padding: 64px 0;
         display: flex;
-        flex-flow: row-reverse nowrap;
-        justify-content: space-evenly;
+        flex-flow: column-reverse nowrap;
+        // justify-content: space-evenly;
 
         .product {
-            width: 40%;
+            width: 100%;
+            padding: 32px 16px;
 
             button {
                 appearance: none;
@@ -77,6 +78,8 @@
             &-actions {
                 padding: 16px;
                 display: flex;
+                flex-flow: column nowrap;
+                align-items: center;
 
                 &-cart {
                     background-color: $primaryc;
@@ -128,9 +131,9 @@
         }
 
         .product-view {
-
             &-item {
-                width: 480px;
+                width: 90%;
+                margin: 0 auto;
                 border: 2px solid $textsecondaryc;
 
                 img {
@@ -145,7 +148,7 @@
                 justify-content: center;
 
                 li {
-                    width: 128px;
+                    width: 92px;
                 }
 
                 li[data-selected] {
@@ -160,3 +163,80 @@
         }
     }
 }
+
+@media (min-width: 599px) {
+    .main {
+        &-product {
+            .product {
+                padding: 64px;
+            }
+
+            .product-view {
+                &-item {
+                    width: 80%;
+                }
+            }
+        }
+    }
+}
+@media (min-width: 719px) {
+    .main {
+        &-product {
+            .product {
+                padding: 64px 128px;
+            }
+        }
+    }
+}
+@media (min-width: 839px) {
+    .main {
+        &-product {
+            padding: 64px 0 128px;
+            flex-flow: row-reverse nowrap;
+            justify-content: space-evenly;
+
+            .product {
+                width: 50%;
+                padding: 0;
+
+                &-actions {
+                    flex-flow: row nowrap;
+                }
+            }
+    
+            .product-view {
+                &-item {
+                    width: 320px;
+                }
+
+                &-list {
+                    li {
+                        width: 92px;
+                    }
+                }
+            }
+        }
+    }
+}
+@media (min-width: 959px) {
+    .main {
+        &-product {
+            .product {
+                width: 40%;
+            }
+    
+            .product-view {
+                &-item {
+                    width: 480px;
+                }
+
+                &-list {
+                    li {
+                        width: 128px;
+                    }
+                }
+            }
+        }
+    }
+}
+// @media (min-width: 1023px) {}
