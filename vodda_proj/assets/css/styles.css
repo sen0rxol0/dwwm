@@ -73,15 +73,21 @@ h3 {
 .footer {
   padding: 64px 0;
   display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-evenly;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+.footer-logo {
+  margin-bottom: 32px;
 }
 .footer-logo a {
   display: inline-block;
 }
 .footer-nav {
+  width: 100%;
+  margin-bottom: 32px;
   display: flex;
   flex-flow: row nowrap;
+  justify-content: space-around;
 }
 .footer-nav span:last-child {
   margin-left: 32px;
@@ -97,6 +103,22 @@ h3 {
   text-align: center;
 }
 
+@media (min-width: 719px) {
+  .footer {
+    flex-flow: row nowrap;
+    align-items: flex-start;
+    justify-content: space-evenly;
+  }
+  .footer-logo {
+    margin-bottom: 0;
+  }
+  .footer-nav {
+    width: max-content;
+    margin-bottom: 0;
+    flex-flow: row nowrap;
+    justify-content: center;
+  }
+}
 .main-hero {
   padding: 128px 0;
   display: flex;
