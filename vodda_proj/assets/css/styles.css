@@ -194,7 +194,8 @@ h3 {
 .main-clients .clients {
   padding-top: 64px;
   display: flex;
-  justify-content: space-evenly;
+  flex-flow: column nowrap;
+  align-items: center;
 }
 .main-clients .clients h4 {
   margin: 1em 0;
@@ -209,7 +210,8 @@ h3 {
   text-align: center;
 }
 .main-clients .clients-review {
-  width: 256px;
+  width: 80%;
+  margin-bottom: 32px;
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
@@ -243,6 +245,15 @@ h3 {
 @media (min-width: 719px) {
   .main-hero .hero-description {
     width: 80%;
+  }
+  .main-clients .clients {
+    flex-flow: row nowrap;
+    align-items: flex-start;
+    justify-content: space-evenly;
+  }
+  .main-clients .clients-review {
+    width: 256px;
+    margin-bottom: 0;
   }
 }
 @media (min-width: 839px) {
