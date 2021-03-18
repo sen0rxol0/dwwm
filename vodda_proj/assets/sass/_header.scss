@@ -34,6 +34,16 @@
             font-weight: 500;
             color: $textc;
             text-transform: uppercase;
+            transition: transform 250ms ease-in-out;
+
+            &:hover {
+                transform: translateX(-8px);
+            }
+
+            &:active {
+                transform: translateX(0px);
+                color: #001e2d;
+            }
         }
     }
 }

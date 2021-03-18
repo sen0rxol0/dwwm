@@ -17,6 +17,8 @@
                 font-weight: 600;
                 text-transform: uppercase;
                 border: none;
+                cursor: pointer;
+                transition: all 250ms ease-in-out;
             }
 
             &-title {
@@ -53,6 +55,11 @@
                 }
                 img {
                     width: 64px;
+                    height: 64px;
+
+                    &:hover {
+                        border: 1px solid $primaryc;
+                    }
                 }
 
                 img[data-selected] {
@@ -84,10 +91,20 @@
                 &-cart {
                     background-color: $primaryc;
                     color: $textc;
+
+                    &:hover {
+                        background-color: transparent;
+                        color: $primaryc;
+                    }
                 }
 
                 &-wish {
-                    color: $primaryc
+                    color: $primaryc;
+                    border: 1px solid transparent !important;
+
+                    &:hover {
+                        border-color: $primaryc !important;
+                    }
                 }
             }
 
@@ -149,6 +166,10 @@
 
                 li {
                     width: 92px;
+
+                    &:hover {
+                        border: 1px solid $primaryc;
+                    }
                 }
 
                 li[data-selected] {

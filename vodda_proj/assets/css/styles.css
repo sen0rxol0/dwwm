@@ -61,6 +61,14 @@ h3 {
   font-weight: 500;
   color: #f1f1f1;
   text-transform: uppercase;
+  transition: transform 250ms ease-in-out;
+}
+.header-nav a:hover {
+  transform: translateX(-8px);
+}
+.header-nav a:active {
+  transform: translateX(0px);
+  color: #001e2d;
 }
 
 @media (min-width: 719px) {
@@ -98,6 +106,10 @@ h3 {
   padding: 0 16px;
   display: block;
   color: #8f8f8f;
+  transition: color 250ms ease-in-out;
+}
+.footer-nav a:hover, .footer-nav a:active {
+  color: #000;
 }
 .footer-links h5 {
   margin: 1em 0;
@@ -146,14 +158,23 @@ h3 {
 .main-hero .hero-description a {
   width: 128px;
   height: 48px;
-  line-height: 2.4;
+  line-height: 2.3;
   margin-top: 32px;
   border-radius: 48px;
+  border: 2px solid transparent;
   text-align: center;
   font-weight: 500;
   font-size: 1.1rem;
   background-color: #fadc00;
   display: inline-block;
+  transition: all 250ms ease-in-out;
+}
+.main-hero .hero-description a:hover {
+  background-color: transparent;
+  border-color: #fadc00;
+}
+.main-hero .hero-description a:active {
+  background-color: #fadc00;
 }
 .main-products {
   display: flex;
@@ -168,6 +189,12 @@ h3 {
   width: 100%;
   padding: 32px 0 64px;
   border-bottom: 1px solid #000;
+}
+.main-products .product:hover, .main-products .product:active {
+  background-image: linear-gradient(to top, #000, #00a3f1);
+  background-size: 100% 4px;
+  background-repeat: no-repeat;
+  background-position: bottom left;
 }
 .main-products .product a {
   display: flex;
@@ -206,14 +233,23 @@ h3 {
   max-width: 256px;
   padding: 0 16px;
   height: 48px;
-  line-height: 2.4;
+  line-height: 2.3;
   margin: 0 auto;
   border-radius: 48px;
+  border: 2px solid transparent;
   font-weight: 500;
   font-size: 1.1rem;
   text-align: center;
   background-color: #fadc00;
   display: block;
+  transition: all 250ms ease-in-out;
+}
+.main-clients a:hover {
+  background-color: transparent;
+  border-color: #fadc00;
+}
+.main-clients a:active {
+  background-color: #fadc00;
 }
 .main-clients .clients {
   padding-top: 64px;
@@ -337,6 +373,8 @@ h3 {
   font-weight: 600;
   text-transform: uppercase;
   border: none;
+  cursor: pointer;
+  transition: all 250ms ease-in-out;
 }
 .main-product .product-title {
   margin: 0 0 1em;
@@ -367,6 +405,10 @@ h3 {
 }
 .main-product .product-combinations img {
   width: 64px;
+  height: 64px;
+}
+.main-product .product-combinations img:hover {
+  border: 1px solid #00a3f1;
 }
 .main-product .product-combinations img[data-selected] {
   border: 1px solid #00a3f1;
@@ -394,8 +436,16 @@ h3 {
   background-color: #00a3f1;
   color: #f1f1f1;
 }
+.main-product .product-actions-cart:hover {
+  background-color: transparent;
+  color: #00a3f1;
+}
 .main-product .product-actions-wish {
   color: #00a3f1;
+  border: 1px solid transparent !important;
+}
+.main-product .product-actions-wish:hover {
+  border-color: #00a3f1 !important;
 }
 .main-product .product-info {
   margin-top: 16px;
@@ -443,6 +493,9 @@ h3 {
 }
 .main-product .product-view-list li {
   width: 92px;
+}
+.main-product .product-view-list li:hover {
+  border: 1px solid #00a3f1;
 }
 .main-product .product-view-list li[data-selected] {
   border: 1px solid #00a3f1;

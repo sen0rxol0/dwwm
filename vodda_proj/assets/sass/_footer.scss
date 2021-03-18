@@ -29,6 +29,11 @@
             padding: 0 16px;
             display: block;
             color: $textsecondaryc;
+            transition: color 250ms ease-in-out;
+
+            &:hover, &:active {
+                color: #000;  
+            }
         }
     }
 
