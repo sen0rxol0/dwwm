@@ -181,8 +181,8 @@ h3 {
   margin-left: 16px;
 }
 .main-products .product-img {
-  width: 128px;
-  height: 128px;
+  width: 256px;
+  height: 256px;
 }
 .main-products .product-info {
   width: 80%;
@@ -261,6 +261,10 @@ h3 {
   }
   .main-products .product p.product-description {
     height: 32px;
+  }
+  .main-products .product-img {
+    width: 128px;
+    height: 128px;
   }
   .main-products .product-info {
     width: 256px;
