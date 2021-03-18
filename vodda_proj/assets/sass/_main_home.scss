@@ -41,7 +41,6 @@
     &-products {
         display: flex;
         flex-flow: column nowrap;
-        // justify-content: center;
 
         &-col {
             display: flex;
@@ -121,7 +120,6 @@
             display: flex;
             flex-flow: column nowrap;
             align-items: center;
-            // justify-content: space-evenly;
 
             h4 {
                 margin: 1em 0;

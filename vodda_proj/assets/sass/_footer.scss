@@ -2,7 +2,6 @@
     padding: 64px 0;
     display: flex;
     flex-flow: column nowrap;
-    // justify-content: space-evenly;
     align-items: center;
 
     &-logo {
@@ -40,8 +39,6 @@
     }
 }
 
-@media (min-width: 599px) {
-}
 @media (min-width: 719px) {
     .footer {
         flex-flow: row nowrap;
@@ -59,12 +56,4 @@
             justify-content: center;
         }
     }
-}
-@media (min-width: 839px) {
-}
-
-@media (min-width: 1023px) {
-}
-
-@media (min-width: 1279px) {
 }
