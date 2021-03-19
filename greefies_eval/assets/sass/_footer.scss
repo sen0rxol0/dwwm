@@ -29,9 +29,15 @@
 
     &-nav-item {
         margin-right: 48px;
+        border-bottom: 1px solid transparent;
+        transition: border-color 200ms ease-out;
 
         &:last-child {
             margin-right: 0;
+        }
+
+        &:hover, &:active {
+            border-bottom-color: $lightgblue;
         }
 
         a {
