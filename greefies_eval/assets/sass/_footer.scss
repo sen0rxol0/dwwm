@@ -1,0 +1,41 @@
+.footer {
+    padding: 16px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    background-color: $darkblue;
+
+    &-logo {
+
+        a {
+            display: inline-block;
+        }
+
+        img {
+            width: 128px;
+        }
+    }
+
+    &-nav {
+        
+    }
+
+    &-nav-items {
+        height: 100%;
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+    }
+
+    &-nav-item {
+        margin-right: 48px;
+
+        &:last-child {
+            margin-right: 0;
+        }
+
+        a {
+            color: $lightgblue;
+        }
+    }
+}

@@ -1,0 +1,40 @@
+.header {
+    width: 100%;
+
+    &-logo {
+        padding: 16px 0 0 64px;
+
+        a {
+            display: inline-block;
+        }
+
+        img.logo {
+            height: 80px;
+        }
+    }
+
+    &-nav {
+        padding: 16px 0;
+        background-color: $darkblue;
+    }
+
+    &-nav-items {
+        height: 100%;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &-nav-item {
+        margin-right: 48px;
+
+        &:last-child {
+            margin-right: 0;
+        }
+
+        a {
+            color: $lightgblue;
+        }
+    }
+}
