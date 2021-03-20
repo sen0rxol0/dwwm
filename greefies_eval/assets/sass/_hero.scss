@@ -1,0 +1,47 @@
+.main-hero {
+    padding: 64px;
+    display: flex;
+    background-image: url('../images/green_box_bg.gif');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    color: $lightgblue;
+
+    img {
+        width: 320px;
+        height: 320px;
+    }
+
+    a.rm {
+        width: 128px;
+        height: 32px;
+        line-height: 2;
+        text-align: center;
+        background-image: url('../images/read_more_bg.gif');
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        display: inline-block;
+        color: $lightgblue;
+    }
+
+    &-links {
+        min-width: 360px;
+
+        li {
+            padding: 12px;
+            padding-left: 48px;
+            background-image: url('../images/right_nav.gif');
+            background-repeat: no-repeat;
+            background-size: contain;
+            position: relative;
+        }
+
+        li:hover {
+            background-image: url('../images/right_nav_a.gif');
+        }
+
+        a {
+            display: inline-block;
+            color: $lightgblue;
+        }
+    }
+}

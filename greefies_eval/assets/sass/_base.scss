@@ -15,6 +15,23 @@ body {
     flex-flow: column nowrap;
 }
 
+h1 {
+    font-size: 2rem;
+    margin: 0.5em 0;
+}
+
+blockquote {
+    margin: 0;
+}
+
+blockquote::before {
+    content: '″';
+}
+
+blockquote::after {
+    content: '″';
+}
+
 ul {
     list-style: none;
     margin: 0;
@@ -24,4 +41,15 @@ ul {
 a {
     text-decoration: none;
     color: #000;
+}
+
+.wrap-row {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-end;
+}
+
+.main-aside {
+    width: 60%;
+    align-self: flex-end;
 }
