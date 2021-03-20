@@ -27,7 +27,9 @@ a {
   width: 100%;
 }
 .header-logo {
-  padding: 16px 0 0 64px;
+  width: max-content;
+  margin: 0 auto;
+  padding-top: 16px;
 }
 .header-logo a {
   display: inline-block;
@@ -40,24 +42,23 @@ a {
   background-color: #436270;
 }
 .header-nav-items {
+  width: max-content;
   height: 100%;
+  margin: 0 auto;
   display: flex;
-  flex-flow: row nowrap;
-  justify-content: center;
-  align-items: center;
+  flex-flow: column nowrap;
+  align-items: flex-start;
 }
 .header-nav-item {
-  margin-right: 48px;
-  padding-left: 24px;
+  padding: 24px;
+  padding-right: 0;
+  padding-bottom: 0;
   background-image: url("../images/menu_arrow.gif");
   background-position: bottom 4px left -16px;
   background-origin: padding-box;
   background-repeat: no-repeat;
   background-size: 16px;
   transition: background-position 200ms ease-out;
-}
-.header-nav-item:last-child {
-  margin-right: 0;
 }
 .header-nav-item:hover {
   background-position: bottom 4px left 4px;
@@ -69,10 +70,32 @@ a {
   color: #f5f7f9;
 }
 
+@media (min-width: 719px) {
+  .header-logo {
+    width: 100%;
+    margin: 0;
+    padding: 16px 0 0 64px;
+  }
+  .header-nav-items {
+    width: 100%;
+    margin: 0;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+  }
+  .header-nav-item {
+    margin-right: 48px;
+    padding: 0;
+    padding-left: 24px;
+  }
+  .header-nav-item:last-child {
+    margin-right: 0;
+  }
+}
 .footer {
   padding: 16px;
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: column nowrap;
   justify-content: space-between;
   background-color: #436270;
 }
@@ -85,22 +108,37 @@ a {
 .footer-nav-items {
   height: 100%;
   display: flex;
-  flex-flow: row nowrap;
-  align-items: center;
+  flex-flow: column nowrap;
+  align-items: flex-start;
 }
 .footer-nav-item {
-  margin-right: 48px;
+  margin-top: 24px;
   border-bottom: 1px solid transparent;
   transition: border-color 200ms ease-out;
-}
-.footer-nav-item:last-child {
-  margin-right: 0;
 }
 .footer-nav-item:hover, .footer-nav-item:active {
   border-bottom-color: #f5f7f9;
 }
 .footer-nav-item a {
   color: #f5f7f9;
+}
+
+@media (min-width: 719px) {
+  .footer {
+    flex-flow: row nowrap;
+    justify-content: space-between;
+  }
+  .footer-nav-items {
+    flex-flow: row nowrap;
+    align-items: center;
+  }
+  .footer-nav-item {
+    margin-top: 0;
+    margin-right: 48px;
+  }
+  .footer-nav-item:last-child {
+    margin-right: 0;
+  }
 }
 
 /*# sourceMappingURL=styles.css.map */

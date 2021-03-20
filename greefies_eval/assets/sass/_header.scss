@@ -2,7 +2,9 @@
     width: 100%;
 
     &-logo {
-        padding: 16px 0 0 64px;
+        width: max-content;
+        margin: 0 auto;
+        padding-top: 16px;
 
         a {
             display: inline-block;
@@ -19,26 +21,24 @@
     }
 
     &-nav-items {
+        width: max-content;
         height: 100%;
+        margin: 0 auto;
         display: flex;
-        flex-flow: row nowrap;
-        justify-content: center;
-        align-items: center;
+        flex-flow: column nowrap;
+        align-items: flex-start;
     }
 
     &-nav-item {
-        margin-right: 48px;
-        padding-left: 24px;
+        padding: 24px;
+        padding-right: 0;
+        padding-bottom: 0;
         background-image: url('../images/menu_arrow.gif');
         background-position: bottom 4px left -16px;
         background-origin: padding-box;
         background-repeat: no-repeat;
         background-size: 16px;
         transition: background-position 200ms ease-out;
-
-        &:last-child {
-            margin-right: 0;
-        }
         
         &:hover {
             background-position: bottom 4px left 4px;
@@ -53,3 +53,34 @@
         }
     }
 }
+
+@media (min-width: 599px) {}
+@media (min-width: 719px) {
+    .header {
+        &-logo {
+            width: 100%;
+            margin: 0;
+            padding: 16px 0 0 64px;
+        }
+    
+        &-nav-items {
+            width: 100%;
+            margin: 0;
+            flex-flow: row nowrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+        &-nav-item {
+            margin-right: 48px;
+            padding: 0;
+            padding-left: 24px;
+
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+    }
+}
+@media (min-width: 839px) {}
+@media (min-width: 959px) {}
