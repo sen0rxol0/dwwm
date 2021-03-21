@@ -11,18 +11,6 @@
         height: 320px;
     }
 
-    a.rm {
-        width: 128px;
-        height: 32px;
-        line-height: 2;
-        text-align: center;
-        background-image: url('../images/read_more_bg.gif');
-        background-size: 100% 100%;
-        background-repeat: no-repeat;
-        display: inline-block;
-        color: $lightgblue;
-    }
-
     &-links {
         min-width: 360px;
 

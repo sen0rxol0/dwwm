@@ -1,5 +1,7 @@
 $darkblue: #436270; // rgb(67,98,112)
 $lightgblue: #f5f7f9;
+$lightg: rgb(240,240,240);
+$vividorange: rgb(247,148,29);
 
 * {
     box-sizing: border-box;
@@ -43,13 +45,44 @@ a {
     color: #000;
 }
 
-.wrap-row {
+a.rms {
+    height: 24px;
+    padding-right: 32px;
+    line-height: 24px;    
+    background-image: url('../images/orange_bullet.gif');
+    background-size: 24px;
+    background-repeat: no-repeat;
+    background-position: top right; 
+    background-position: top right;
+    color: $vividorange;
+    text-align: right;
+    display: block;
+}
+
+a.rm {
+    width: 128px;
+    height: 32px;
+    line-height: 2;
+    text-align: center;
+    background-image: url('../images/read_more_bg.gif');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    color: $lightgblue;
+    display: block;
+    float: right;
+}
+
+.rows {
+    padding: 16px;
     display: flex;
     flex-flow: row wrap;
     justify-content: flex-end;
-}
 
-.main-aside {
-    width: 60%;
-    align-self: flex-end;
+    span.row:first-child {
+        width: 40%;
+    }
+
+    span.row:last-child {
+        width: 60%;
+    }
 }

@@ -1,3 +1,48 @@
 .main-about {
-    width: 40%;
+    width: 100%;
+    padding: 16px;
+    background-color: $lightg;
+
+    h2 {
+        color: $vividorange;
+    }
+
+    h2 + blockquote {
+        text-align: justify;
+    }
+
+    figure {
+        margin: 0;
+        padding-top: 16px;
+        display: flex;
+
+        img {
+            width: 128px;
+            height: 128px;
+            border: 1px solid $darkblue;
+        }
+        figcaption {
+            padding: 0 8px;
+            text-align: justify;
+        }
+    }
+
+    &-nav {
+        // padding-top: 32px;
+
+        li {
+            padding: 16px;
+            padding-left: 40px;
+            border-bottom: 2px dotted $vividorange;
+            color: $darkblue;
+            background-image: url('../images/left_nav_arrow.gif');
+            background-size: 32px;
+            background-position: 0px 8px;
+            background-origin: padding-box;
+            background-repeat: no-repeat;
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+    }
+
 }
