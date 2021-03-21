@@ -1,19 +1,23 @@
 .main-hero {
-    padding: 64px;
+    padding: 64px 16px;
     background-image: url('../images/green_box_bg.gif');
     background-repeat: no-repeat;
     background-size: 100% 100%;
     color: $lightgblue;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
 
     img {
-        width: 360px;
+        width: 256px;
         height: 360px;
     }
 
     article {
-        max-width: 720px;
+        max-width: 600px;
+
+        blockquote {
+            text-align: justify;
+        }
     }
 
     &-links {
@@ -35,6 +39,21 @@
         a {
             display: inline-block;
             color: $lightgblue;
+        }
+    }
+}
+
+@media (min-width: 599px) {}
+@media (min-width: 719px) {}
+@media (min-width: 839px) {}
+@media (min-width: 959px) {}
+@media (min-width: 1023px) {
+    .main-hero {
+        padding: 64px 32px;
+
+        img {
+            width: 256px;
+            height: 360px;
         }
     }
 }
