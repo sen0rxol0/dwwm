@@ -81,10 +81,22 @@ a.rm {
     justify-content: flex-end;
 
     span.row:first-child {
-        width: 40%;
+        width: 100%;
     }
 
     span.row:last-child {
-        width: 60%;
+        width: 100%;
+    }
+}
+
+@media (min-width: 1023px) {
+    .rows {
+        span.row:first-child {
+            width: 40%;
+        }
+    
+        span.row:last-child {
+            width: 60%;
+        }
     }
 }
