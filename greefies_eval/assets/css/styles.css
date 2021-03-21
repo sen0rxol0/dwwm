@@ -59,6 +59,7 @@ a.rm {
   width: 128px;
   height: 32px;
   line-height: 2;
+  margin-top: 32px;
   text-align: center;
   background-image: url("../images/read_more_bg.gif");
   background-size: 100% 100%;
@@ -205,11 +206,8 @@ a.rm {
   background-size: 100% 100%;
   color: #f5f7f9;
   display: flex;
-  justify-content: space-between;
-}
-.main-hero img {
-  width: 256px;
-  height: 360px;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 .main-hero article {
   max-width: 600px;
@@ -239,10 +237,6 @@ a.rm {
 @media (min-width: 1023px) {
   .main-hero {
     padding: 64px 32px;
-  }
-  .main-hero img {
-    width: 256px;
-    height: 360px;
   }
 }
 .main-about {
