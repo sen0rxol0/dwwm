@@ -332,6 +332,7 @@ a.rm {
   margin: 0.5em 0;
   font-size: 1.4rem;
   color: #50a83c;
+  text-transform: capitalize;
 }
 .main-aside-search form {
   width: 100%;
