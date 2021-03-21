@@ -200,15 +200,19 @@ a.rm {
 }
 .main-hero {
   padding: 64px;
-  display: flex;
   background-image: url("../images/green_box_bg.gif");
   background-repeat: no-repeat;
   background-size: 100% 100%;
   color: #f5f7f9;
+  display: flex;
+  justify-content: space-evenly;
 }
 .main-hero img {
-  width: 320px;
-  height: 320px;
+  width: 360px;
+  height: 360px;
+}
+.main-hero article {
+  max-width: 720px;
 }
 .main-hero-links {
   min-width: 360px;
@@ -276,7 +280,7 @@ a.rm {
   color: #f7941d;
 }
 .main-products-item {
-  margin-bottom: 16px;
+  padding: 16px 0 16px 0;
   border-bottom: 2px dotted #f7941d;
   display: flex;
 }
@@ -299,7 +303,61 @@ a.rm {
 .main-aside {
   width: 100%;
   padding: 16px;
+  padding-top: 0;
   display: flex;
+}
+.main-aside-search {
+  width: 50%;
+  padding: 0 16px;
+  background-image: url("../images/search_box_bg.gif");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+.main-aside-search h4 {
+  margin: 0.5em 0;
+  font-size: 1.4rem;
+  color: #50a83c;
+}
+.main-aside-search form {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.main-aside-search input {
+  width: 75%;
+  height: 32px;
+}
+.main-aside-search button {
+  appearance: none;
+  width: 56px;
+  height: 56px;
+  background-color: transparent;
+  border: none;
+}
+.main-aside-search button img {
+  max-width: 100%;
+}
+.main-aside-support {
+  width: 50%;
+  padding-left: 16px;
+}
+.main-aside-support h4 {
+  margin: 0;
+  margin-bottom: 1em;
+  font-size: 1.4rem;
+  color: #50a83c;
+}
+.main-aside-support p {
+  padding-left: 80px;
+  background-size: 48px 48px;
+  background-position: 0px 0px;
+  background-repeat: no-repeat;
+}
+.main-aside-support p.phone {
+  background-image: url("../images/phone_icon.gif");
+}
+.main-aside-support p.email {
+  background-image: url("../images/contact_icon.gif");
 }
 
 /*# sourceMappingURL=styles.css.map */
