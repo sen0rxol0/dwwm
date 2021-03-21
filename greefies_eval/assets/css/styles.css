@@ -319,9 +319,10 @@ a.rm {
   padding: 16px;
   padding-top: 0;
   display: flex;
+  flex-wrap: wrap;
 }
 .main-aside-search {
-  width: 50%;
+  width: 100%;
   padding: 0 16px;
   background-image: url("../images/search_box_bg.gif");
   background-repeat: no-repeat;
@@ -352,7 +353,8 @@ a.rm {
   max-width: 100%;
 }
 .main-aside-support {
-  width: 50%;
+  width: 100%;
+  padding-top: 32px;
   padding-left: 16px;
 }
 .main-aside-support h4 {
@@ -372,6 +374,16 @@ a.rm {
 }
 .main-aside-support p.email {
   background-image: url("../images/contact_icon.gif");
+}
+
+@media (min-width: 839px) {
+  .main-aside-search {
+    width: 50%;
+  }
+  .main-aside-support {
+    padding-top: 0;
+    width: 50%;
+  }
 }
 
 /*# sourceMappingURL=styles.css.map */

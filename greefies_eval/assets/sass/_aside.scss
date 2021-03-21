@@ -3,9 +3,10 @@
     padding: 16px;
     padding-top: 0;
     display: flex;
+    flex-wrap: wrap;
 
     &-search {
-        width: 50%;
+        width: 100%;
         padding: 0 16px;
         background-image: url('../images/search_box_bg.gif');
         background-repeat: no-repeat;
@@ -41,7 +42,8 @@
     }
 
     &-support {
-        width: 50%;
+        width: 100%;
+        padding-top: 32px;
         padding-left: 16px;
 
         h4 {
@@ -64,6 +66,18 @@
 
         p.email {
             background-image: url('../images/contact_icon.gif');
+        }
+    }
+}
+
+@media (min-width: 839px) {
+    .main-aside {
+        &-search {
+            width: 50%;
+        }
+        &-support {
+            padding-top: 0;
+            width: 50%;
         }
     }
 }
