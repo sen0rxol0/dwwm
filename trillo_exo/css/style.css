@@ -1,0 +1,151 @@
+/*
+LES COULEURS
+
+Primary: #eb2f64
+Primary light: #FF3366
+Primary dark: #BA265D
+
+Grey light 1: #faf9f9
+Grey light 2: #f4f2f2
+Grey light 3: #f0eeee
+Grey light 4: #ccc
+
+Grey dark 1: #333
+Grey dark 2: #777
+Grey dark 3: #999
+*/
+body,
+.container-fluid {
+  background-color: #ccc;
+}
+
+.header {
+  height: 80px;
+  padding: 16px;
+  background-color: #faf9f9;
+}
+.header .logo img {
+  height: 100%;
+}
+.header form input::placeholder {
+  color: #999;
+}
+.header ul li {
+  color: #777;
+  background-color: #faf9f9;
+}
+
+.badge-custom {
+  position: relative;
+}
+.badge-custom::before {
+  content: attr(data-badge);
+  width: 20px;
+  height: 20px;
+  line-height: 1.5;
+  font-size: 12px;
+  border-radius: 100%;
+  background-color: #FF3366;
+  color: #faf9f9;
+  text-align: center;
+  font-weight: 300;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+}
+
+.navigation li {
+  color: #ccc;
+  cursor: pointer;
+}
+.navigation li.active {
+  background-color: #eb2f64 !important;
+  border-color: #BA265D;
+}
+.navigation li:hover, .navigation li:active {
+  border-color: #BA265D;
+}
+
+.hotels .hotels-heading {
+  background-color: #faf9f9;
+}
+.hotels .hotels-title {
+  color: #333;
+  font-weight: 100;
+}
+.hotels .hotels-title span {
+  color: #FF3366;
+}
+.hotels .hotels-location {
+  color: #FF3366;
+}
+.hotels .hotels-location a {
+  color: inherit;
+}
+.hotels .hotels-votes {
+  background-color: #FF3366;
+  color: #faf9f9;
+}
+
+.articles p {
+  color: #333;
+}
+.articles > div:first-child {
+  background-color: #f4f2f2;
+}
+.articles .articles-offers li {
+  background-color: transparent;
+  color: #333;
+}
+.articles .articles-offers li span {
+  color: #eb2f64;
+}
+.articles .recommends {
+  color: #333;
+}
+.articles .reviews div:last-child a {
+  color: #eb2f64;
+}
+.articles .review {
+  background-color: #f4f2f2;
+  position: relative;
+  color: #333;
+}
+.articles .review::after {
+  content: " ";
+  width: 92px;
+  height: 92px;
+  background-image: url("data:image/svg+xml,<svg fill='%232323' viewBox='0 0 26 28' xmlns='http://www.w3.org/2000/svg'><path d='M12 15v6c0 1.656-1.344 3-3 3h-6c-1.656 0-3-1.344-3-3v-11c0-4.406 3.594-8 8-8h1c0.547 0 1 0.453 1 1v2c0 0.547-0.453 1-1 1h-1c-2.203 0-4 1.797-4 4v0.5c0 0.828 0.672 1.5 1.5 1.5h3.5c1.656 0 3 1.344 3 3zM26 15v6c0 1.656-1.344 3-3 3h-6c-1.656 0-3-1.344-3-3v-11c0-4.406 3.594-8 8-8h1c0.547 0 1 0.453 1 1v2c0 0.547-0.453 1-1 1h-1c-2.203 0-4 1.797-4 4v0.5c0 0.828 0.672 1.5 1.5 1.5h3.5c1.656 0 3 1.344 3 3z'/></svg>");
+  background-repeat: no-repeat;
+  background-size: 92px 92px;
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.articles .news {
+  color: #333;
+}
+.articles .news > div {
+  width: 100%;
+  height: 92px;
+  margin: 0 auto;
+  background-image: linear-gradient(to right, #FF3366, #BA265D);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+.articles .news > div a {
+  width: 100%;
+  line-height: 2.3;
+  border: none;
+  border-radius: inherit;
+  background-color: transparent;
+  font-size: 32px;
+  font-weight: 100;
+}
+
+.copy {
+  color: #ccc;
+}
+
+/*# sourceMappingURL=style.css.map */

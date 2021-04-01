@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>trillo &mdash; Your all-in-one booking location</title>
+
+    <link rel="shortcut icon" type="image/png" href="./img/favicon.png">
+    <!-- Inclusion de fonts via google fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600">
+    <!-- Inclusion de Bootstrap css via cdn -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <div class="container-fluid d-flex flex-column align-content-stretch vh-100">
+        <div class="row">
+            <header class="header d-flex justify-content-between col-12">
+                <div class="logo"><img src="./img/logo.png" alt="Trillo"></div>
+                <!-- Header search -->
+                <form class="form-inline w-50" action="#">
+                    <div class="input-group col">
+                        <input style="border-top-right-radius: 0 !important;border-bottom-right-radius: 0 !important;"
+                            type="text" class="form-control rounded-pill border-right-0" id="search-inline"
+                            placeholder="Search hotels">
+                        <div class="input-group-append">
+                            <div style="border-top-left-radius: 0 !important;border-bottom-left-radius: 0 !important;"
+                                class="input-group-text rounded-pill border-left-0 bg-transparent">
+                                <svg width="16" height="16" fill="currentColor">
+                                    <use xlink:href="./img/bootstrap-icons.svg#search" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <!-- FIN Header search -->
+
+                <!-- Header profile -->
+                <ul class="list-group list-group-horizontal align-items-center">
+                    <li data-badge="7" class="badge-custom list-group-item border-0">
+                        <svg width="24" height="24" fill="currentColor">
+                            <use xlink:href="./img/bootstrap-icons.svg#bookmarks-fill" />
+                        </svg>
+                    </li>
+                    <li data-badge="13" class="badge-custom list-group-item border-0">
+                        <svg width="24" height="24" fill="currentColor">
+                            <use xlink:href="./img/bootstrap-icons.svg#chat-fill" />
+                        </svg>
+                    </li>
+                    <li class="list-group-item border-0">
+                        <img class="mr-2 rounded-circle" width="48" src="./img/user.jpg" alt="Profile placeholder" />
+                        hi, jonas
+                    </li>
+                </ul>
+                <!-- FIN Header profile -->
+            </header>
+        </div>
+
+        <div class="row h-100">
+            <div class="col-2 p-0 bg-dark">
+                <nav class="navigation">
+                    <!-- Navigation -->
+                    <ul class="list-group text-uppercase pt-5">
+                        <li class="active list-group-item border-left-0 border-right-0 bg-dark rounded-0">
+                            <svg class="mr-4 mb-1" width="16" height="16" fill="currentColor">
+                                <use xlink:href="./img/bootstrap-icons.svg#house-door-fill" />
+                            </svg>
+                            Hotel
+                        </li>
+                        <li class="list-group-item border-left-0 border-right-0 bg-dark">
+                            <svg class="mr-4 mb-1" width="16" height="16" fill="currentColor">
+                                <use xlink:href="./img/bootstrap-icons.svg#calendar-event-fill" />
+                            </svg>
+                            Flight
+                        </li>
+                        <li class="list-group-item border-left-0 border-right-0 bg-dark">
+                            <svg class="mr-4 mb-1" width="16" height="16" fill="currentColor">
+                                <use xlink:href="./img/bootstrap-icons.svg#key-fill" />
+                            </svg>
+                            Car Rental
+                        </li>
+                        <li class="list-group-item border-left-0 border-right-0 bg-dark">
+                            <svg class="mr-4 mb-1" width="16" height="16" fill="currentColor">
+                                <use xlink:href="./img/bootstrap-icons.svg#map-fill" />
+                            </svg>
+                            Tours
+                        </li>
+                    </ul>
+                    <!-- FIN Navigation -->
+                </nav>
+
+                <p class="copy pl-2 fixed-bottom"><small>&copy; 2017 by TRILLO. All Rights Reseved.</small></p>
+            </div>
+            <div class="hotels col-10">
+                <!-- Hero -->
+                <div class="row">
+                    <div class="col-4 p-0">
+                        <img class="img-thumbnail border-0 p-0 rounded-0" src="./img/hotel-1.jpg" alt="Hotel" />
+                    </div>
+                    <div class="col-4 p-0">
+                        <img class="img-thumbnail border-0 p-0 rounded-0" src="./img/hotel-3.jpg" alt="Hotel" />
+                        </div>
+                    <div class="col-4 p-0">
+                        <img class="img-thumbnail border-0 p-0 rounded-0" src="./img/hotel-2.jpg" alt="Hotel" />
+                    </div>
+                </div>
+                <!-- FIN Hero -->
+
+                <!-- Presentation -->
+                <section class="hotels-heading row">
+                    <div class="col-8 d-flex align-items-center">
+                        <h1 class="hotels-title display-4 text-uppercase">Hotel Las Palmas 
+                            <span class="ml-5">
+                                <svg class="mr-1 mb-1" width="16" height="16" fill="currentColor">
+                                    <use xlink:href="./img/bootstrap-icons.svg#heart-fill" />
+                                </svg>
+                                <svg class="mr-1 mb-1" width="16" height="16" fill="currentColor">
+                                    <use xlink:href="./img/bootstrap-icons.svg#heart-fill" />
+                                </svg>
+                                <svg class="mr-1 mb-1" width="16" height="16" fill="currentColor">
+                                    <use xlink:href="./img/bootstrap-icons.svg#heart-fill" />
+                                </svg>
+                                <svg class="mr-1 mb-1" width="16" height="16" fill="currentColor">
+                                    <use xlink:href="./img/bootstrap-icons.svg#heart-fill" />
+                                </svg>
+                                <svg class="mb-1" width="16" height="16" fill="currentColor">
+                                    <use xlink:href="./img/bootstrap-icons.svg#heart-fill" />
+                                </svg>
+                            </span>
+                        </h1>
+                    </div>
+                    <div class="col-4 pr-0 d-flex justify-content-end align-items-center">
+                        <span class="hotels-location mr-5">
+                            <svg class="mr-1 mb-1" width="16" height="16" fill="currentColor">
+                                <use xlink:href="./img/bootstrap-icons.svg#geo-fill" />
+                            </svg> 
+                            <a href="https://duckduckgo.com/?t=ffab&q=albufeira+portugal&atb=v225-1&iax=images&ia=images" target="_blank">
+                                Albufeira, Portugal
+                            </a>
+                        </span>
+                        <span class="hotels-votes h-100 p-3 d-inline-flex flex-column text-center text-uppercase">
+                            <span class="h2 display-4">8.6</span>
+                            <small>429 Votes</small>
+                        </span>
+                    </div>
+                </section>
+                <!-- FIN Presentation -->
+
+                <!-- Articles -->
+                <section class="articles row justify-content-around py-5">
+                    <div class="col-5 p-4">
+                        <!-- About -->
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, aliquam et debitis
+                            repellendus laborum nisi pariatur delectus rem similique aspernatur accusantium doloremque.
+                        </p>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Distinctio deserunt sequi excepturi
+                            reprehenderit.
+                        </p>
+
+                        <div class="articles-offers row justify-content-around">
+                            <ul class="py-5 list-group">
+                                <li class="list-group-item border-0">
+                                    <span><svg class="mb-1" width="16" height="16" fill="currentColor">
+                                        <use xlink:href="./img/bootstrap-icons.svg#chevron-right" />
+                                    </svg></span> 
+                                   Close to the beach
+                                </li>
+                                <li class="list-group-item border-0">
+                                    <span><svg class="mb-1" width="16" height="16" fill="currentColor">
+                                        <use xlink:href="./img/bootstrap-icons.svg#chevron-right" />
+                                    </svg></span> 
+                                    Free airport shuttle
+                                </li>
+                                <li class="list-group-item border-0">
+                                    <span><svg class="mb-1" width="16" height="16" fill="currentColor">
+                                        <use xlink:href="./img/bootstrap-icons.svg#chevron-right" />
+                                    </svg></span> 
+                                    Air conditioning and heating</li>
+                                <li class="list-group-item border-0">
+                                    <span><svg class="mb-1" width="16" height="16" fill="currentColor">
+                                        <use xlink:href="./img/bootstrap-icons.svg#chevron-right" />
+                                    </svg></span> 
+                                    We speak your languages
+                                </li>
+                            </ul>
+                            <ul class="py-5 list-group">
+                                <li class="list-group-item border-0">
+                                    <span><svg class="mb-1" width="16" height="16" fill="currentColor">
+                                        <use xlink:href="./img/bootstrap-icons.svg#chevron-right" />
+                                    </svg></span> 
+                                    Breakfast included
+                                </li>
+                                <li class="list-group-item border-0">
+                                    <span><svg class="mb-1" width="16" height="16" fill="currentColor">
+                                        <use xlink:href="./img/bootstrap-icons.svg#chevron-right" />
+                                    </svg></span> 
+                                    Free wifi in all rooms
+                                </li>
+                                <li class="list-group-item border-0">
+                                    <span><svg class="mb-1" width="16" height="16" fill="currentColor">
+                                        <use xlink:href="./img/bootstrap-icons.svg#chevron-right" />
+                                    </svg></span> 
+                                    Pets allowed
+                                </li>
+                                <li class="list-group-item border-0">
+                                    <span><svg class="mb-1" width="16" height="16" fill="currentColor">
+                                        <use xlink:href="./img/bootstrap-icons.svg#chevron-right" />
+                                    </svg></span> 
+                                    Perfect for famillies
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- FIN About -->
+
+                        <!-- Recommendation -->
+                        <div class="recommends p-4 row justify-content-between">
+                            <small>Lucy and 3 other friends recommend this hotel.</small>
+                            <span>
+                                <img class="rounded-circle" width="32" height="32" src="./img/user-1.jpg" alt="Lucy friends" />
+                                <img class="rounded-circle ml-n3" width="32" height="32" src="./img/user-3.jpg" alt="Lucy friends" />
+                                <img class="rounded-circle ml-n3" width="32" height="32" src="./img/user-4.jpg" alt="Lucy friends" />
+                                <img class="rounded-circle ml-n3" width="32" height="32" src="./img/user-2.jpg" alt="Lucy" />
+                            </span>
+                        </div>
+                        <!-- FIN Recommendation -->
+                    </div>
+                    <div class="reviews col-3">
+                        <!-- Reviews -->
+                        <div class="review row p-4">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A, sit vitae? Suscipit accusantium
+                                ex incidunt esse odio harum dolore molestias.</p>
+
+                            <ul class="list-group list-group-horizontal">
+                                <li class="list-group-item border-0 p-1 bg-transparent"><img class="rounded-circle" width="64" height="64" src="./img/user-5.jpg" alt="Nick Smith" /></li>
+                                <li class="list-group-item border-0 p-1 bg-transparent">Nick Smith<br><small>Feb 23rd. 2017</small></li>
+                                <li class="list-group-item border-0 p-1 bg-transparent display-4">7.8</li>
+                            </ul>
+                        </div>
+
+                        <div class="review row my-5 p-4">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A, sit vitae? Suscipit accusantium
+                                ex incidunt esse odio harum dolore molestias.</p>
+
+                            <ul class="list-group list-group-horizontal">
+                                <li class="list-group-item border-0 p-1 bg-transparent"><img class="rounded-circle" width="64" height="64" src="./img/user-6.jpg" alt="Mary Thompson" /></li>
+                                <li class="list-group-item border-0 p-1 bg-transparent">Mary Thompson<br><small>Sept 13th. 2017</small></li>
+                                <li class="list-group-item border-0 p-1 bg-transparent display-4">9.3</li>
+                            </ul>
+                        </div>
+
+                        <div class="row justify-content-center">
+                            <a href="#">Show All 
+                                <svg class="mb-1" width="16" height="16" fill="currentColor">
+                                    <use xlink:href="./img/bootstrap-icons.svg#arrow-right" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- FIN Reviews -->
+                    <div class="news col-3 p-4">
+                        <h3 class="text-uppercase">good news! we have free rooms for your selected dates!</h3>
+                        <div class="mt-5 row rounded-pill">
+                            <a href="#" class="text-uppercase btn btn-primary">book now</a>
+                        </div>
+                    </div>
+                </section>
+                <!-- FIN Articles -->
+            </div>
+        </div>
+        <!-- <svg style="width: 24px; height: 24px;"><use xlink:href="./img/bootstrap-icons.svg#alarm"></use></svg> -->
+    </div>
+</body>
+
+</html>

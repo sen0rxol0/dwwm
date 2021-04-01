@@ -1,0 +1,199 @@
+/*
+LES COULEURS
+
+Primary: #eb2f64
+Primary light: #FF3366
+Primary dark: #BA265D
+
+Grey light 1: #faf9f9
+Grey light 2: #f4f2f2
+Grey light 3: #f0eeee
+Grey light 4: #ccc
+
+Grey dark 1: #333
+Grey dark 2: #777
+Grey dark 3: #999
+*/
+
+$primaryc: #eb2f64;
+$primarylightc: #FF3366;
+$primarydarkc: #BA265D;
+$greylightunc: #faf9f9;
+$greylightdeuxc: #f4f2f2;
+$greylighttroisc: #f0eeee;
+$greylightquatrec: #ccc;
+$greydarkunc: #333;
+$greydarkdeuxc: #777;
+$greydarktroisc: #999;
+
+body, 
+.container-fluid {
+    background-color: $greylightquatrec;
+}
+
+.header {
+    height: 80px;
+    padding: 16px;
+    background-color: $greylightunc;
+
+    .logo {
+
+        img {
+            height: 100%;
+        }
+    }
+
+    form {
+        input::placeholder {
+            color: $greydarktroisc;
+        }
+    }
+
+    ul {
+        li {
+            color: $greydarkdeuxc;
+            background-color: $greylightunc;
+        }
+    }
+}
+
+.badge-custom {
+    position: relative;
+    &::before {
+        content: attr(data-badge);
+        width: 20px;
+        height: 20px;
+        line-height: 1.5;
+        font-size: 12px;
+        border-radius: 100%;
+        background-color: $primarylightc;
+        color: $greylightunc;
+        text-align: center;
+        font-weight: 300;
+        position: absolute;
+        top: 8px; right: 8px;
+    }
+}
+// .badge-custom::
+
+.navigation {
+    li {
+        color: $greylightquatrec;
+        cursor: pointer;
+        &.active {
+            background-color: $primaryc !important;
+            border-color: $primarydarkc;
+        }
+        &:hover, &:active {
+            border-color: $primarydarkc;
+        }
+    }
+}
+
+
+.hotels {
+    // height: 256px;
+    .hotels-heading {
+        background-color: $greylightunc;
+    }
+    .hotels-title {
+        color: $greydarkunc;
+        font-weight: 100;
+        span {
+            color: $primarylightc;
+        }
+    }
+
+    .hotels-location {
+        color: $primarylightc;
+
+        a {
+            color: inherit;
+        }
+    }
+
+    .hotels-votes {
+        background-color: $primarylightc;
+        color: $greylightunc;
+    }
+}
+
+.articles {
+    p {
+        color: $greydarkunc;
+    }
+    & > div:first-child {
+        background-color: $greylightdeuxc;
+    }
+
+    .articles-offers {
+        li {
+            background-color: transparent;
+            color: $greydarkunc;
+
+            span {
+                color: $primaryc;
+            }
+        }
+    }
+
+    .recommends {
+        color: $greydarkunc;
+    }
+
+    .reviews {
+        div:last-child {
+            a {
+                color: $primaryc;
+            }
+        }
+    }
+
+    .review {
+        background-color: $greylightdeuxc;
+        position: relative;
+        color: $greydarkunc;
+
+        &::after {
+            // content: '\0201C';
+            content: ' ';
+            width: 92px;
+            height: 92px;
+            background-image: url("data:image/svg+xml,<svg fill='%232323' viewBox='0 0 26 28' xmlns='http://www.w3.org/2000/svg'><path d='M12 15v6c0 1.656-1.344 3-3 3h-6c-1.656 0-3-1.344-3-3v-11c0-4.406 3.594-8 8-8h1c0.547 0 1 0.453 1 1v2c0 0.547-0.453 1-1 1h-1c-2.203 0-4 1.797-4 4v0.5c0 0.828 0.672 1.5 1.5 1.5h3.5c1.656 0 3 1.344 3 3zM26 15v6c0 1.656-1.344 3-3 3h-6c-1.656 0-3-1.344-3-3v-11c0-4.406 3.594-8 8-8h1c0.547 0 1 0.453 1 1v2c0 0.547-0.453 1-1 1h-1c-2.203 0-4 1.797-4 4v0.5c0 0.828 0.672 1.5 1.5 1.5h3.5c1.656 0 3 1.344 3 3z'/></svg>");
+            background-repeat: no-repeat;
+            background-size: 92px 92px;
+            // font-size: 92px;
+            display: inline-block;
+            position: absolute;
+            top: 0; left: 0;
+        }
+    }
+
+    .news {
+        color: $greydarkunc;
+
+        & > div {
+            width: 100%;
+            height: 92px;
+            margin: 0 auto;
+            background-image: linear-gradient(to right, $primarylightc, $primarydarkc);
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+
+            a {
+                width: 100%;
+                line-height: 2.3;
+                border:none;
+                border-radius: inherit;
+                background-color: transparent;
+                font-size: 32px;
+                font-weight: 100;
+            }
+        }
+    
+    }
+}
+
+.copy {
+    color: $greylightquatrec;
+}
