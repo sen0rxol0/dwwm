@@ -1,0 +1,149 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css");
+.sidebar {
+  background-color: #bb8e62;
+}
+.sidebar .burger {
+  width: 56px;
+  height: 48px;
+  margin: 0 1.85em;
+  display: block;
+  position: fixed;
+  cursor: pointer;
+}
+.sidebar .burger-bar {
+  width: 100%;
+  height: 4px;
+  margin-top: 12px;
+  border-radius: 2px;
+  background-color: #fafafa;
+  display: block;
+}
+.sidebar .burger-bar:last-child {
+  background-color: rgba(250, 250, 250, 0.7);
+}
+
+.header-heading {
+  position: relative;
+}
+.header-heading::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  display: block;
+  background-image: url("../img/hero.jpeg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-blend-mode: multiply;
+  background-color: #121c26;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: -1;
+}
+.header-heading .hero p {
+  color: #bb8e62;
+}
+.header-heading .hero h2 {
+  color: #fafafa;
+}
+.header-heading .hero a.btn {
+  max-width: max-content;
+  background-color: #bb8e62;
+  color: #fafafa;
+}
+.header-heading .businesses {
+  opacity: 0.4;
+}
+.header-heading .businesses p {
+  width: 100%;
+  color: #fafafa;
+  position: relative;
+}
+.header-heading .businesses p::before, .header-heading .businesses p::after {
+  content: "";
+  width: 45%;
+  height: 1px;
+  background-color: #fafafa;
+  display: inline-block;
+  position: absolute;
+  top: calc(50% + .5px);
+}
+.header-heading .businesses p::before {
+  left: 0;
+}
+.header-heading .businesses p::after {
+  right: 0;
+}
+.header-leading {
+  background-color: #121c26;
+}
+.header-leading > h5 {
+  color: #bb8e62;
+}
+.header-leading .realtors {
+  color: #fafafa;
+}
+.header-leading .realtors small {
+  font-size: 60%;
+}
+
+.offers p {
+  font-weight: 300;
+}
+
+.stories-gallery {
+  width: 100%;
+  height: 65vh;
+  background-image: url("../img/story-bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+.stories-gallery img:nth-child(2) {
+  position: absolute;
+  top: 55%;
+  right: -15%;
+  z-index: 1;
+}
+.stories div:last-child {
+  background-color: rgba(187, 142, 98, 0.3);
+}
+.stories div:last-child p:first-child {
+  color: #bb8e62;
+}
+.stories div:last-child p:not(:first-child) {
+  margin-left: 15%;
+}
+.stories div:last-child a {
+  margin-left: 25%;
+  background-color: #bb8e62;
+  color: #fafafa;
+}
+
+.houses .house figure {
+  width: 100%;
+  margin: 0;
+  position: relative;
+}
+.houses .house figcaption {
+  width: 80%;
+  background-color: #121c26;
+  color: #fafafa;
+  position: absolute;
+  bottom: -5%;
+  left: 10%;
+}
+.houses .house img {
+  width: 100%;
+}
+.houses .house ul {
+  width: 100%;
+  background-color: rgba(187, 142, 98, 0.3);
+}
+.houses .house a {
+  width: 100%;
+  background-color: #bb8e62;
+  color: #fafafa;
+}
+
+/*# sourceMappingURL=main.css.map */
