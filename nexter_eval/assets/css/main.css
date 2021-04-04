@@ -1,4 +1,9 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css");
+a.btn-lg:hover {
+  background-color: transparent !important;
+  color: #bb8e62 !important;
+}
+
 .sidebar {
   background-color: #bb8e62;
 }
@@ -10,11 +15,16 @@
   position: fixed;
   cursor: pointer;
 }
+.sidebar .burger:hover .burger-bar:first-child {
+  background-color: rgba(250, 250, 250, 0.7);
+}
+.sidebar .burger:hover .burger-bar:last-child {
+  background-color: #fafafa;
+}
 .sidebar .burger-bar {
   width: 100%;
   height: 4px;
   margin-top: 12px;
-  border-radius: 2px;
   background-color: #fafafa;
   display: block;
 }
@@ -79,14 +89,35 @@
 }
 .header-leading > h5 {
   color: #bb8e62;
+  z-index: 1;
 }
 .header-leading .realtors {
   color: #fafafa;
+}
+.header-leading .realtors li {
+  position: relative;
+}
+.header-leading .realtors li::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(to bottom, rgba(187, 142, 98, 0.3), transparent);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 0%;
+  right: 0%;
+}
+.header-leading .realtors img {
+  z-index: 1;
 }
 .header-leading .realtors small {
   font-size: 60%;
 }
 
+.offers h4 {
+  font-weight: 300;
+}
 .offers p {
   font-weight: 300;
 }
@@ -120,6 +151,18 @@
   color: #fafafa;
 }
 
+.houses .house {
+  position: relative;
+}
+.houses .house::after {
+  content: "";
+  width: 90%;
+  height: 90%;
+  border: 4px solid rgba(187, 142, 98, 0.3);
+  position: absolute;
+  top: 5%;
+  right: 5%;
+}
 .houses .house figure {
   width: 100%;
   margin: 0;
@@ -140,10 +183,30 @@
   width: 100%;
   background-color: rgba(187, 142, 98, 0.3);
 }
+.houses .house ul li {
+  font-size: 0.8rem;
+}
+.houses .house ul span {
+  float: right;
+}
 .houses .house a {
   width: 100%;
   background-color: #bb8e62;
   color: #fafafa;
+  z-index: 1;
+}
+
+.footer {
+  padding: 128px 74px;
+  background-color: #121c26;
+}
+.footer a {
+  font-weight: 100;
+  color: #fafafa;
+}
+.footer a:hover {
+  color: #fafafa;
+  text-decoration-color: #fafafa;
 }
 
 /*# sourceMappingURL=main.css.map */
