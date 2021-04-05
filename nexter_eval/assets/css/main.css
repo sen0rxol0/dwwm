@@ -84,6 +84,9 @@ a.btn-lg:hover {
 .header-heading .businesses p::after {
   right: 0;
 }
+.header-heading .businesses img {
+  max-height: 56px;
+}
 .header-leading {
   background-color: #121c26;
 }
