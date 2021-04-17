@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>JAVASCRIPT INTRODUCTION</title>
+    <style>
+      .list-voitures {
+        display: none;
+      }
+      .list-voitures.affiche {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>HELLO WORLD</h1>
+
+    <h4>Liste des voitures</h4>
+    <form id="voituresFormulaire" class="" action="#" method="post">
+      <input type="text" name="voiture" placeholder="Marque"/>
+      <input type="text" name="voiture_couleur" placeholder="Couleur"/>
+      <input type="text" name="voiture_prix" placeholder="Prix"/>
+      <input type="text" name="voiture_annee" placeholder="Année"/>
+      <button type="submit">Ajouter voiture</button>
+    </form>
+
+    <button style="margin: 40px 0;" id="boutonAffichage" type="button" title="Afficher voitures">Afficher voitures</button>
+    <ul id="voitures" class="list-voitures"></ul>
+
+    <script type="text/javascript">
+      window.listVoitures = [
+        {
+          marque: 'Audi',
+          couleur: 'Rouge',
+          prix: '230000',
+          annee: '2010'
+        },
+        {
+          marque: 'Range Rover',
+          couleur: 'Blanc',
+          prix: '430000',
+          annee: '2010'
+        }
+      ];
+    </script>
+    <script src="boucles.js"></script>
+    <script src="events.js"></script>
+
+    <!-- <script src="objets_tableaux.js"></script> -->
+    <!-- <script type="text/javascript" title="BOUCLES">
+      // for () {}
+      // while () {}
+      // do while () {}
+
+      // const elements = [1, 10, 30, 50, 70, 90];
+      // for (let i = 0; i < elements.length; i++) {
+      //   console.log(elements[i]);
+      // }
+      // let afficherLeTableau = (element) => {
+      //   console.log(element);
+      // }
+      // elements.forEach(afficherLeTableau);
+
+      // ajax.
+      // var oReq = new XMLHttpRequest();
+      // oReq.addEventListener("load", reqListener);
+      // oReq.open("GET", "http://www.example.org/example.txt");
+      // oReq.send();
+
+      const basileList = document.getElementById('voitures');
+      function afficherVoitures(voiture) {
+        // console.log(voiture);
+        let listItem = document.createElement('li');
+        listItem.textContent = voiture;
+        basileList.appendChild(listItem);
+        // console.log(listItem);
+      }
+      const voitures = ['Audi', 'Austin', 'Alfa Romeo', 'BMW'];
+      voitures.forEach(afficherVoitures);
+    </script> -->
+
+    <!-- <script type="text/javascript">
+      console.log("HELLO CONSOLE");
+      // types
+      console.log(typeof "chaine de chars"); // string
+      console.log(typeof 'chaine de chars'); // string
+      console.log(typeof `chaine de chars`); // string
+      console.log(typeof 200); // number
+      console.log(typeof 20.0); // number
+      console.log(typeof true); // boolean
+      console.log(typeof false); // boolean
+      console.log(typeof undefined); // undefined
+      console.log(typeof intro); // undefined
+      console.log(typeof []); // object
+      console.log(typeof {}); // object
+      console.log(typeof Function); // object
+      console.log(typeof null);
+    </script> -->
+
+    <!-- <script type="text/javascript" title="VARIABLES">
+      // 'use strict';
+      const intro = "INTRODUCTION";
+      // let recuperationFinit = true;
+      // recuperationFinit = false;
+      let elementsRecuperes = 100;
+
+      function recuperation() {
+        const recuperationFinit = true;
+        var js = "JAVASCRIPT";
+        // ...
+        recuperationFinit = false;
+      }
+      recuperation();
+      console.log(js);
+      console.log(recuperationFinit);
+    </script> -->
+
+    <!-- <script type="text/javascript" title="Controle CONDITIONS">
+    // const intro = "INTRODUCTION";
+    let intro = 90;
+
+    // if (typeof intro === 'string') {
+    //   console.log('intro equal string');
+    // } else if (typeof intro === 'number') {
+    //   console.log('intro equal number');
+    // }  else {
+    //   console.log('intro equal intro');
+    // }
+
+    if (intro > 100 && intro <= 200) {
+      intro = "INTRODUCTION";
+    } else if (intro < 100 && intro != 90 ) {
+      intro = "JS";
+    } else {
+      intro = "INTRODUCTION JS";
+    }
+    console.log(intro);
+    </script> -->
+  </body>
+</html>
