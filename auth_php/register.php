@@ -1,4 +1,5 @@
-<?php 
+<?php
+session_start();
 $documentTitle = 'Inscription';
 include_once __DIR__.'/partials/head.php';
 
@@ -6,19 +7,20 @@ function submit_register()
 {
     global $register_info;
     global $errors;
-    $email_exists = execute_query("SELECT * FROM users WHERE email = '$register_info[email]'");
+    $stmt = execute_query("SELECT * FROM users WHERE email = ?", 's', [$register_info['email']]);
+    $email_exists = $stmt->get_result();
     if ($email_exists->num_rows === 0) {
+        $stmt->close();
         $register_info['password'] = password_hash($register_info['password'], PASSWORD_BCRYPT);
-        execute_query("INSERT INTO users (name, email, password, created_at) 
-            VALUES ('$register_info[name]', '$register_info[email]', '$register_info[password]', NOW())
-        ");
+        $params = [$register_info['name'], $register_info['email'], $register_info['password']];
+        execute_query("INSERT INTO users (name, email, password, created_at) VALUES (?, ?, ?, NOW())", 'sss', $params);
     } else {
         $errors['email'] = "Cette adresse mail existe déjà. Veuillez essayer la connexion.";
     }
-    unset($email_exists);
+    unset($email_exists, $stmt);
 }
 
-function validate_register()
+function validate_register(): bool
 {
     global $errors;
     $email_reg_exp = "/^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/";
@@ -59,14 +61,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $register_info = sanitize_input($_POST);
             submit_register();
             if (empty($errors)) {
+                close_db();
                 // $_SESSION['message'] = 'Merci de votre inscription.';
                 $_SESSION['user'] = array(
                     'email' => $register_info['email'],
-                    'name' => $register_info['name']
+                    'name' => $register_info['name'],
+                    'time' => time()
                 );
                 unset($errors, $register_info);
                 header("Location: admin/index.php");
-                die();
+                // die();
             }
         } else {
             $message = 'Veuillez remplir le formulaire.';
@@ -78,7 +82,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <main>
     <h1>Inscrivez-vous</h1>
     <?php if (isset($message)): echo "<p>$message</p>"; endif; ?>
-    <div class="register__form">
+    <div class="wrap__form">
         <form action="register.php" method="POST">
             <span>
                 <label for="name_">Nom &colon;</label>
@@ -97,7 +101,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </span>
             <span>
                 <label for="password_confirm_">Confirmation du mot du passe &colon;</label>
-                <input type="text" name="password_confirm" id="password_confirm_" required>
+                <input type="password" name="password_confirm" id="password_confirm_" required>
             </span>
             <button type="submit" title="S'inscrire">S&apos;inscrire</button>
         </form>

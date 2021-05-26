@@ -37,34 +37,34 @@ h1 {
     text-align: center;
 }
 
-.register__form form {
+.wrap__form form {
     max-width: 480px;
     margin: 0 auto;
     display: flex;
     flex-flow: column nowrap;
 }
 
-.register__form form span {
+.wrap__form form span {
     margin-bottom: 16px;
     display: flex;
     flex-flow: column nowrap;
     justify-content: space-between;
 }
 
-.register__form label {
+.wrap__form label {
     margin-bottom: 4px;
     font-weight: 600;
 }
 
-.register__form input {
+.wrap__form input {
     flex: 1;
 }
 
-.register__form button {
+.wrap__form button {
     font-size: 24px;
 }
 
-.register__form small {
+.wrap__form small {
     color: red;
 }
 

@@ -1,4 +1,5 @@
 <?php 
+session_start();
 $documentTitle = 'Accueil';
 include_once __DIR__.'/partials/head.php';
 ?>
