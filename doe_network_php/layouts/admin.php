@@ -13,6 +13,9 @@
                     <a class="nav-link" href="/admin/categories">Catégories</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="/admin/messages">Messages</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="/login">Déconnexion</a>
                 </li>
             </ul>

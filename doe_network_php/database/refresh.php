@@ -1,36 +1,50 @@
 <?php
 require_once 'adapter.php';
 
-create_categories_table();
-create_expertises_table();
-drop_users_table();
-create_users_table();
-insert_admin_user();
+drop_table_expertises();
+drop_table_categories();
+create_table_categories();
+create_table_expertises();
+drop_table_users();
+create_table_users();
+insert_user_admin();
 unset($pdo);
 
-function create_expertises_table()
+function drop_table_expertises()
+{
+    global $pdo;
+    $pdo->query("DROP TABLE IF EXISTS expertises");
+}
+
+function create_table_expertises()
 {   
     query_from_file('expertises');
 }
 
-function create_categories_table()
+function drop_table_categories()
+{
+    global $pdo;
+    $pdo->query("DROP TABLE IF EXISTS categories");
+}
+
+function create_table_categories()
 {   
     query_from_file('categories');
 }
 
-function drop_users_table()
+function drop_table_users()
 {
     global $pdo;
     $pdo->query("DROP TABLE IF EXISTS users");
         // $pdo->query("TRUNCATE TABLE users");
 }
 
-function create_users_table()
+function create_table_users()
 {
     query_from_file('users');
 }
 
-function insert_admin_user()
+function insert_user_admin()
 {
     global $pdo;
     $insert_admin_query = $pdo->prepare("INSERT INTO 
