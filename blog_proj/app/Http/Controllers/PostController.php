@@ -16,11 +16,16 @@ class PostController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $posts = Post::latest()->get();
+        if ($request->query('trash') == 1) {
+            $posts = Post::onlyTrashed()->latest()->get();
+        } else {
+            $posts = Post::latest()->get();
+        }
         return view('admin.posts.index', array(
             'posts' => $posts
         ));
@@ -77,15 +82,12 @@ class PostController extends Controller
     public function show($id)
     {
         $post = Post::find($id);
-        if (!$post) {
-            return redirect()->route('admin.posts.index')->with(array(
-                'warning' => 'Cet article n\'existe pas.'
+        if ($post) {
+            return view('admin.posts.show', array(
+                'post' => $post
             ));
         }
-
-        return view('admin.posts.show', array(
-            'post' => $post
-        ));
+        return $this->postNotFound();
     }
 
     /**
@@ -97,16 +99,13 @@ class PostController extends Controller
     public function edit($id)
     {
         $post = Post::find($id);
-        if (!$post) {
-            return redirect()->route('admin.posts.index')->with(array(
-                'warning' => 'Cet article n\'existe pas.'
+        if ($post) {
+            return view('admin.posts.edit', array(
+                'post' => $post,
+                'categories' => Category::all()
             ));
         }
-
-        return view('admin.posts.edit', array(
-            'post' => $post,
-            'categories' => Category::all()
-        ));
+        return $this->postNotFound();
     }
 
     /**
@@ -148,22 +147,51 @@ class PostController extends Controller
             return redirect()->route('admin.posts.index')->with(array(
                 'status' => 'Votre article a été mise á jour avec succès.'
             ));
-        } else {
-            return redirect()->route('admin.posts.index')->with(array(
-                'warning' => 'Cet article n\'existe pas.'
-            ));
         }
+        return $this->postNotFound();
     }
 
     /**
      * Remove the specified resource from storage.
      *
+     * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        //
+        $post = Post::withTrashed()
+                    ->where('id', $id)
+                    ->first();
+        if ($post) {
+            if ($request->has('permanent_delete')) {
+                $post->forceDelete();
+                return redirect()->route('admin.posts.index')->with(array(
+                    'status' => 'Votre article a été supprimé.'
+                ));
+            } else if ($request->has('restore_delete')) {
+                $post->restore();
+                return redirect()->route('admin.posts.index')->with(array(
+                    'status' => 'Votre article n\'est plus dans la corbeille.'
+                ));
+            } else {
+                $post->delete();
+                return redirect()->route('admin.posts.index')->with(array(
+                    'status' => 'Votre article a été placé dans la corbeille.'
+                ));
+            }
+        }
+        return $this->postNotFound();   
+    }
+
+    /**
+     * @return \Illuminate\Http\Response
+     */
+    protected function postNotFound()
+    {
+        return redirect()->route('admin.posts.index')->with(array(
+            'warning' => 'Cet article n\'existe pas.'
+        ));
     }
 
     protected function validateRequestPost($update = false) 
@@ -172,7 +200,7 @@ class PostController extends Controller
             return Validator::make($request->all(), array(
                 "title" => ["required", "string", "max:255"],
                 "category_id" => ["required", "integer", "exists:categories,id"],
-                // "image" => ["required", "image", "dimensions:min_width=100,min_height=100"],
+                "image" => ["image", "dimensions:min_width=100,min_height=100"],
                 "content" => ["required", "string"]
             ), array(
                 "title.required" => "Ce champ est obligatoire.",
@@ -181,9 +209,8 @@ class PostController extends Controller
                 "category_id.required" => "Ce champ est obligatoire.",
                 "category_id.integer" => "Ce champ doit être un nombre entier.",
                 "category_id.exists" => "Cette catégorie n'existe pas.",
-                // "image.required" => "Ce champ est obligatoire.",
-                // "image.image" => "Ce type de fichier n'est pas supporté.",
-                // "image.dimensions" => "Veuillez insérer une image d'au moins 100x100px",
+                "image.image" => "Ce type de fichier n'est pas supporté.",
+                "image.dimensions" => "Veuillez insérer une image d'au moins 100x100px",
                 "content.required" => "Ce champ est obligatoire.",
                 "content.string" => "Format invalide."
             ));
