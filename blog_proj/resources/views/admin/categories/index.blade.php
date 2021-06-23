@@ -3,16 +3,17 @@
 @section('breadcrumbs')
     <a class="btn btn-link btn-sm" href="{{ route('admin.home') }}">Dashboard</a>
     <strong>/</strong>
-    <a class="btn btn-link" href="{{ route('admin.categories.index') }}">Cat&eacute;gories</a>
+    <a class="btn btn-link" href="{{ route('admin.categories.index') }}">Liste des cat&eacute;gories</a>
 @endsection
 @section('sub_content')
-    <a class="btn btn-link btn-outline-light" href="{{ route('admin.categories.create') }}">Ajouter cat&eacute;gorie</a>
+    <a class="btn btn-link btn-outline-light" href="{{ route('admin.categories.create') }}">Ajouter nouvelle cat&eacute;gorie</a>
+    @if(count($categories))
     <table class="mt-2 table">
         <thead>
             <tr>
                 <th>Nom</th>
-                <th>Ajout&eacute;</th>
-                <th>Modifi&eacute;</th>
+                <th>Ajout&eacute;e</th>
+                <th>Modifi&eacute;e</th>
                 <th></th>
             </tr>
         </thead>
@@ -26,12 +27,12 @@
                     <td>
                         <a class="btn btn-outline-secondary btn-sm" href="{{ route('admin.categories.edit', $category->id) }}">Modifier</a>
                         <a class="btn btn-outline-danger btn-sm" href="{{ route('admin.categories.delete', $category->id) }}"
-                            onclick="event.preventDefault();if (confirm('Veuillez-vous confirmer suppression ?')) document.getElementById('detele_category_form').submit();"
+                            onclick="event.preventDefault();if (confirm('Veuillez-vous confirmer suppression ?')) document.getElementById('form_delete_category-{{$tag->id}}').submit();"
                         >
                             Supprimer
                         </a>
 
-                        <form id="detele_category_form" action="{{ route('admin.categories.delete', $category->id) }}" method="POST" class="d-none">
+                        <form id="form_delete_category-{{$tag->id}}" action="{{ route('admin.categories.delete', $category->id) }}" method="POST" class="d-none">
                             @csrf
                             @method('DELETE')
                         </form>
@@ -54,4 +55,5 @@
           </li>
         </ul>
     </nav>
+    @endif
 @endsection

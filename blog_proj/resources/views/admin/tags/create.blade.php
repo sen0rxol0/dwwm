@@ -1,14 +1,14 @@
 @extends('layouts.admin')
-@section('sub_title', 'Ajouter catégorie')
+@section('sub_title', 'Ajouter nouveau tag')
 @section('breadcrumbs')
     <a class="btn btn-link btn-sm" href="{{ route('admin.home') }}">Dashboard</a>
     <strong>/</strong>
-    <a class="btn btn-link btn-sm" href="{{ route('admin.categories.index') }}">Cat&eacute;gories</a>
+    <a class="btn btn-link btn-sm" href="{{ route('admin.tags.index') }}">Liste des tags</a>
     <strong>/</strong>
-    <a class="btn btn-link" href="{{ route('admin.categories.create') }}">Ajouter cat&eacute;gorie</a>
+    <a class="btn btn-link" href="{{ route('admin.tags.create') }}">Ajouter nouveau tag</a>
 @endsection
 @section('sub_content')
-    <form method="POST" action="{{ route('admin.categories.store') }}">
+    <form method="POST" action="{{ route('admin.tags.store') }}">
         @csrf
         <div class="form-group row">
             <label for="name" class="col-md-4 col-form-label text-md-right">Nom</label>

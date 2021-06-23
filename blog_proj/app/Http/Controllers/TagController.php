@@ -5,9 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
-use App\Models\Category;
+use App\Models\Tag;
 
-class CategoryController extends Controller
+class TagController extends Controller
 {
     public function __constructor()
     {
@@ -20,9 +20,9 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::all();
-        return view('admin.categories.index', [
-            'categories' => $categories
+        $tags = Tag::all();
+        return view('admin.tags.index', [
+            'tags' => $tags
         ]);
     }
 
@@ -33,7 +33,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('admin.categories.create');
+        return view('admin.tags.create');
     }
 
     /**
@@ -45,23 +45,23 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            "name" => [ "required", "string", "max:255", "unique:categories"]
+            "name" => [ "required", "string", "max:255", "unique:tags"]
         ], [
             "name.required" => "Le nom est obligatoire.",
             "name.string" => "Veuillez entrer une chaine de caractères valide.",
             "name.max" => "Veuillez entrer au maximum 255 caractères.",
-            "name.unique" => "Cette catégorie existe déjà. Veuillez en choisir une autre.",
+            "name.unique" => "Ce tag existe déjà. Veuillez en choisir un autre.",
         ]);
 
         if ($validator->fails()) {
-            return redirect()->route('admin.categories.create')
+            return redirect()->route('admin.tags.create')
                 ->withErrors($validator)
                 ->withInput();
         }
 
-        $category = Category::create(['name' => $request->name]);
-        return redirect()->route('admin.categories.index')->with(array(
-            'status' => 'Votre catégorie a été ajoutée avec sucèss.'
+        $category = Tag::create(['name' => $request->name]);
+        return redirect()->route('admin.tags.index')->with(array(
+            'status' => 'Votre tag a été ajouté avec sucèss.'
         ));
     }
 
@@ -73,14 +73,14 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-        $category = Category::find($id);
-        if ($category) {
-            return view('admin.categories.show', array(
-                'category' => $category
+        $tag = Tag::find($id);
+        if ($tag) {
+            return view('admin.tags.show', array(
+                'tag' => $tag
             ));
         }
-        return redirect()->route('admin.categories.index')->with(array(
-            'warning' => "Cette catégorie n'existe pas."
+        return redirect()->route('admin.tags.index')->with(array(
+            'warning' => "Ce tag n'existe pas."
         ));
     }
 
@@ -92,14 +92,14 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        $category = Category::find($id);
-        if ($category) {
-            return view('admin.categories.edit', array(
-                'category' => $category
+        $tag = Tag::find($id);
+        if ($tag) {
+            return view('admin.tags.edit', array(
+                'tag' => $tag
             ));
         }
-        return redirect()->route('admin.categories.index')->with(array(
-            'warning' => "Cette catégorie n'existe pas."
+        return redirect()->route('admin.tags.index')->with(array(
+            'warning' => "Ce tag n'existe pas."
         ));
     }
 
@@ -112,24 +112,24 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $category = Category::find($id);
+        $tag = Tag::find($id);
         $validator = Validator::make($request->all(), [
-            "name" => [ "required", "string", "max:255", Rule::unique('categories')->ignore($id) ]
+            "name" => [ "required", "string", "max:255", Rule::unique('tags')->ignore($id) ]
         ], [
             "name.required" => "Le nom est obligatoire.",
             "name.string" => "Veuillez entrer une chaine de caractères valide.",
             "name.max" => "Veuillez entrer au maximum 255 caractères.",
-            // "name.exists" => "Cette catégorie n'existe pas.",
-            "name.unique" => "Cette catégorie existe déjà. Veuillez en choisir une autre.",
+            // "name.exists" => "Ce tag n'existe pas.",
+            "name.unique" => "Ce tag existe déjà. Veuillez en choisir un autre.",
         ]);
         if ($validator->fails()) {
             return redirect()->back()
                 ->withErrors($validator)
                 ->withInput();
         }
-        $category->update(['name' => $request->name]);
-        return redirect()->route('admin.categories.index')->with(array(
-            'status' => "Votre catégorie a été modifiée avec sucèss."
+        $tag->update(['name' => $request->name]);
+        return redirect()->route('admin.tags.index')->with(array(
+            'status' => "Votre tag a été modifié avec sucèss."
         ));
     }
 
@@ -141,10 +141,10 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        $category = Category::find($id);
-        $category->delete();
-        return redirect()->route("admin.categories.index")->with([
-            "status" => "Votre catégorie: <u>".$category->name."</u> a été supprimée avec succès."
+        $tag = Tag::find($id);
+        $tag->delete();
+        return redirect()->route("admin.tags.index")->with([
+            "status" => "Votre tag: <u>".$tag->name."</u> a été supprimé avec succès."
         ]);
     }
 }

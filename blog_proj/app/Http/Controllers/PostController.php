@@ -13,6 +13,10 @@ use App\Models\Category;
 
 class PostController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(array('auth', 'admin'));
+    }
     /**
      * Display a listing of the resource.
      *
@@ -165,6 +169,9 @@ class PostController extends Controller
                     ->first();
         if ($post) {
             if ($request->has('permanent_delete')) {
+                if($post->image) {
+                    Storage::delete($post->image);
+                }
                 $post->forceDelete();
                 return redirect()->route('admin.posts.index')->with(array(
                     'status' => 'Votre article a été supprimé.'

@@ -6,13 +6,13 @@
         ev.preventDefault();
         if (ev.target.classList.contains('btn__delete_post')) {
             if (confirm('Veuillez-vous confirmer corbeille ?')) {
-                document.getElementById('form__corbeille_post').submit();
+                document.getElementById(ev.target.getAttribute('data-for')).submit();
             }
         } 
         
         if (ev.target.classList.contains('btn__restore_post')) {
             if (confirm('Veuillez-vous confirmer remettre ?')) {
-                document.getElementById('form__restore_post').submit();
+                document.getElementById(ev.target.getAttribute('data-for')).submit();
             }
         }
     }
@@ -23,7 +23,6 @@
             const restoreBtns = document.querySelectorAll('a.btn__restore_post');
             if (deleteBtns.length) {
                 deleteBtns.forEach((btnDelete) => {
-                    console.log(btnDelete);
                     btnDelete.addEventListener('click', onDeletePost);
                 });
             }
@@ -42,20 +41,20 @@
 @endsection
 @section('breadcrumbs')
     <a class="btn btn-link btn-sm" href="{{ route('admin.home') }}">Dashboard</a>
-    @if(request('trash') == 1)
+    @if(request('corbeille') == 1)
         <strong>/</strong>
-        <a class="btn btn-link btn-sm" href="{{ route('admin.posts.index') }}">Articles</a>
+        <a class="btn btn-link btn-sm" href="{{ route('admin.posts.index') }}">Liste des articles</a>
         <strong>/</strong>
-        <a class="btn btn-link" href="{{ route('admin.posts.index') }}?trash=1">Corbeille</a>
+        <a class="btn btn-link" href="{{ route('admin.posts.index') }}?corbeille=1">Corbeille</a>
     @else
         <strong>/</strong>
-        <a class="btn btn-link" href="{{ route('admin.posts.index') }}">Articles</a>
+        <a class="btn btn-link" href="{{ route('admin.posts.index') }}">Liste des articles</a>
     @endif
 @endsection
 @section('sub_content')
     <a class="btn btn-link btn-outline-light" href="{{ route('admin.posts.create') }}">Ajouter article</a>
-    @if(request('trash') == 1)
-        <a id="btn_empty_trash" class="btn btn-danger" href="{{ route('admin.posts.index') }}?trash=1&empty=1">Vider corbeille</a>
+    @if(request('corbeille') == 1)
+        <a id="btn_empty_trash" class="btn btn-danger" href="{{ route('admin.posts.index') }}?corbeille=1&empty=1">Vider corbeille</a>
         @if (isset($posts[0]))
             <form id="form_empty_trash" action="{{route('admin.posts.delete', ['id' => $posts[0]->id])}}" method="POST" class="d-none">
                 @csrf
@@ -64,9 +63,9 @@
             </form>
         @endif
     @else
-        <a class="btn btn-light" href="{{ route('admin.posts.index') }}?trash=1">Voir corbeille</a>
+        <a class="btn btn-light" href="{{ route('admin.posts.index') }}?corbeille=1">Voir corbeille</a>
     @endif
-    @if (!empty($posts))
+    @if(count($posts))
     <table class="mt-2 table">
         <thead>
             <tr>
@@ -115,14 +114,17 @@
                     <td>{{  $post->created_at->diffForHumans() }}</td>
                     <td>{{  $post->updated_at->diffForHumans() }}</td>
                     <td>
-                        <a class="btn btn-outline-secondary btn-sm" href="{{ route('admin.posts.edit', ['id' => $post->id]) }}">Modifier</a>
+                        @if (!$post->trashed())
+                            <a class="btn btn-outline-secondary btn-sm" href="{{ route('admin.posts.edit', ['id' => $post->id]) }}">Modifier</a>
+                        @endif
                         <a
                             class="btn__delete_post btn btn-outline-danger btn-sm" 
                             href="{{ route('admin.posts.delete', ['id' => $post->id]) }}"
+                            data-for="form__corbeille_post-{{$post->id}}"
                         >
                             @if($post->trashed()) Supprimer @else Corbeille @endif
                         </a>
-                        <form id="form__corbeille_post" action="{{ route('admin.posts.delete', ['id' => $post->id]) }}" method="POST" class="d-none">
+                        <form id="form__corbeille_post-{{$post->id}}" action="{{ route('admin.posts.delete', ['id' => $post->id]) }}" method="POST" class="d-none">
                             @csrf
                             @method('DELETE')
                             @if($post->trashed())
@@ -134,11 +136,12 @@
                             <a
                                 class="btn__restore_post btn btn-outline-danger btn-sm" 
                                 href="{{ route('admin.posts.delete', ['id' => $post->id]) }}"
+                                data-for="form__restore_post-{{$post->id}}"
                             >
                                 Remettre
                             </a>
 
-                            <form id="form__restore_post" action="{{ route('admin.posts.delete', ['id' => $post->id]) }}" method="POST" class="d-none">
+                            <form id="form__restore_post-{{$post->id}}" action="{{ route('admin.posts.delete', ['id' => $post->id]) }}" method="POST" class="d-none">
                                 @csrf
                                 @method('DELETE')
                                 <input type="hidden" name="restore_delete" value="1">

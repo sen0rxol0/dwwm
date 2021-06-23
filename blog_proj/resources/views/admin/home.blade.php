@@ -15,6 +15,9 @@
                     <a class="nav-link btn btn-outline-primary" href="{{ route('admin.posts.index') }}">Articles</a>
                 </li>
                 <li class="pb-2 nav-item">
+                    <a class="nav-link btn btn-outline-primary" href="{{ route('admin.tags.index') }}">Tags</a>
+                </li>
+                <li class="pb-2 nav-item">
                     <a class="nav-link btn btn-outline-primary" href="{{ route('admin.users.index') }}">Utilisateurs</a>
                 </li>
             </ul>

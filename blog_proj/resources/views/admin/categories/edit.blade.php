@@ -24,7 +24,8 @@
 
         <div class="form-group row mb-0">
             <div class="col-md-6 offset-md-4">
-                <button type="submit" class="btn btn-primary">Sauvegarder</button>
+                <a href="{{route('admin.categories.index')}}" title="Annuler modifier" class="btn btn-secondary">Annuler</a>
+                <button type="submit" class="btn btn-success">Sauvegarder</button>
             </div>
         </div>
     </form>

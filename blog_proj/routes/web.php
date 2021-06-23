@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\TagController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +32,7 @@ Route::prefix('admin')->group(function()
     Route::name('admin.')->group(function()
     {
         Route::get('/home', [AdminController::class, 'showHome'])->name('home');
+        Route::get('/users', [UserController::class, 'index'])->name('users.index');
         /**
          * START CRUD
          */
@@ -51,7 +53,15 @@ Route::prefix('admin')->group(function()
         Route::get('/articles/{id}/modifier', [PostController::class, 'edit'])->name('posts.edit');
         Route::post('/articles/{id}', [PostController::class, 'update'])->name('posts.update');
         Route::delete('/articles/{id}', [PostController::class, 'destroy'])->name('posts.delete');
-
-        Route::get('/users', [UserController::class, 'index'])->name('users.index');
+        /**
+         * START CRUD
+         */
+        Route::get('/tags', [TagController::class, 'index'])->name('tags.index');
+        Route::get('/tags/ajouter', [TagController::class, 'create'])->name('tags.create');
+        Route::post('/tags', [TagController::class, 'store'])->name('tags.store');
+        Route::get('/tags/{id}', [TagController::class, 'show'])->name('tags.show');
+        Route::get('/tags/{id}/modifier', [TagController::class, 'edit'])->name('tags.edit');
+        Route::post('/tags/{id}', [TagController::class, 'update'])->name('tags.update');
+        Route::delete('/tags/{id}', [TagController::class, 'destroy'])->name('tags.delete');
     });
 });

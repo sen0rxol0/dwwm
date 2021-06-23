@@ -9,8 +9,8 @@ class UserController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
-        $this->middleware('user')->except('index');
+        $this->middleware(array('auth', 'admin'))->except(array('show', 'create', 'edit', 'update'));
+        // $this->middleware('user')->except('index');
     }
     
     /**
