@@ -13,18 +13,16 @@ class CreateBooksTable extends Migration
      */
     public function up()
     {
-        // Schema::disableForeignKeyConstraints();
         Schema::create('books', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('title')->unique();
+            $table->string('slug');
             $table->string('author');
-            $table->longText('comment');
-            // $table->integer('rating', 2);
+            $table->text('comment');
+            $table->integer('rate');
             $table->timestamps();
-
             $table->foreign('author')->references('name')->on('authors');
         });
-        // Schema::enableForeignKeyConstraints();
     }
 
     /**
