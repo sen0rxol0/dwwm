@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 use App\Models\Book;
 
 class BookController extends Controller
@@ -20,10 +21,28 @@ class BookController extends Controller
     {
         return view('books.create');   
     }
+    public function import(Request $request)
+    {
+        Book::truncate();
+        $imports = $request->all();
+        foreach($imports as $import) {
+            DB::table('authors')->insertOrIgnore([
+                'name' => $import['author']
+            ]);
+            $book = new Book([
+                'title' => $import['title'],
+                'slug' => Str::slug($import['title'], '-'),
+                'author' => $import['author'],
+                'comment' => $import['comment'],
+                'rate' => $import['rate']            
+            ]);
+            $book->save();
+        }
+        return response()->json(array('status' => 'Votre importation de livres a été un succès.'), 200);
+    }
     public function store(Request $request)
     {
         $validator = $this->validator($request->all());
-        // dd($validator);
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator)->withInput();
         }
@@ -64,19 +83,20 @@ class BookController extends Controller
     }
     public function update(Request $request, $id) 
     {
-        $validator = $this->validator($request->all(), true);
+        $validator = $this->validator($request->all(), true, $id);
         if ($validator->fails()) {
-            return redirect()->back()->withError($validator)->withInput();
+            return redirect()->back()->withErrors($validator)->withInput();
         }
+        DB::table('authors')->upsert([
+            'name' => $request->author
+        ]);
         $book = Book::find($id);
         if ($book) {
-            $book->update(array(
-                'title' => $request->title,
-                'slug' => Str::slug($request->title, '-'),
-                'author' => $request->author,
-                'comment' => $request->comment,
-                'rate' => $request->rate
-            ));
+            $book->title = $request->title;
+            $book->slug = Str::slug($request->title, '-');
+            $book->author = $request->author;
+            $book->comment = $request->comment;
+            $book->rate = $request->rate;
             $book->save();
             return redirect()->route('books.index')->with(array(
                 'status' => 'Votre livre a été mis à jour avec succès.'
@@ -96,10 +116,10 @@ class BookController extends Controller
         }
         return $this->bookNotFound();
     }
-    protected function validator($requestAll, $update = false)
+    protected function validator($requestAll, $update = false, $id = null)
     {
         $rules = array(
-            'title' => ['required', 'string:255', $update ? 'unique:books':'unique:books'],
+            'title' => ['required', 'string:255', $update ? Rule::unique('books')->ignore($id):'unique:books'],
             'author' => ['required', 'string'],
             'comment' => ['required', 'string'],
             'rate' => ['required', 'numeric', 'digits_between:0,20'] 

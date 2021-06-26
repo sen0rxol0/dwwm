@@ -8,6 +8,7 @@ Route::get('/', function () {
     return redirect()->route('books.index');
 });
 
+Route::post('/livres/importer', [BookController::class, 'import'])->name('books.import');
 Route::get('/livres', [BookController::class, 'index'])->name('books.index');
 Route::post('/livres', [BookController::class, 'store'])->name('books.store');
 Route::get('/livres/ajouter', [BookController::class, 'create'])->name('books.create');

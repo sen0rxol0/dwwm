@@ -18,6 +18,38 @@
             }
         }
     </script>
+    <script>
+        function onImportBooks() {
+            const endpoint = document.querySelector('button[data-import-endpoint]').getAttribute('data-import-endpoint');
+            function onProcessBooks(olBooks) {
+                const books = [];
+                olBooks.works.forEach((work) => {
+                    books.push({
+                        title: work.title,
+                        author: work.authors[0].name,
+                        comment: work.subject.join(),
+                        rate: 20,
+                    });
+                });
+                fetch(endpoint, {
+                    method: 'POST',
+                    body: JSON.stringify(books),
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                    }
+                }).then(res => {
+                    if (res.status === 200) {
+                        window.location.reload();
+                        // res.json().then(data => {});
+                    }
+                });
+            }
+
+            fetch('https://openlibrary.org/subjects/love.json?limit=100&details=true')
+            .then(res => res.json()).then(onProcessBooks);
+        }
+    </script>
 @endsection
 @section('breadcrumbs')
     <li class="list-group-item">
@@ -28,6 +60,7 @@
 @section('content')
     <div class="col-12 d-flex flex-row justify-content-end">
         <a class="btn btn-link" href="{{route('books.create')}}">Ajouter nouveau livre</a>
+        <button type="button" onclick="onImportBooks()" data-import-endpoint="{{route('books.import')}}" class="btn btn-light">Importer livres</button>
     </div>
     <div class="col-12">
         @if($books)

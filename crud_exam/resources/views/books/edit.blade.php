@@ -17,6 +17,7 @@
     <div class="card shadow-sm col-8">
         <form method="POST" action="{{route('books.update', ['id' => $book->id])}}">
             @csrf
+            @method('PUT')
             <div class="mt-4">
                 <label for="title">Titre</label>
                 <input class="form-control @error('title') is-invalid @enderror" type="text" name="title" id="title" value="{{old('title') ?? $book->title}}" required autofocus>
