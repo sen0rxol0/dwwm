@@ -77,6 +77,10 @@ class BookController extends Controller
                 'comment' => $request->comment,
                 'rate' => $request->rate
             ));
+            $book->save();
+            return redirect()->route('books.index')->with(array(
+                'status' => 'Votre livre a été mis à jour avec succès.'
+            ));
         }
         return $this->bookNotFound();
         
