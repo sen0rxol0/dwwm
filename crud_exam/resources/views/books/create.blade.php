@@ -14,26 +14,38 @@
     </li>
 @endsection
 @section('content')
-    <div class="card col-8">
+    <div class="card shadow-sm col-8">
         <form method="POST" action="{{route('books.store')}}">
             @csrf
-            <div class="mt-2">
+            <div class="mt-4">
                 <label for="title">Titre</label>
-                <input class="form-control" type="text" name="title" id="title" required autofocus>
+                <input class="form-control @error('title') is-invalid @enderror" type="text" name="title" id="title" value="{{old('title')}}" autofocus>
+                @error('title')
+                    <div class="alert alert-danger"><small>{{$message}}</small></div>
+                @enderror
             </div>
             <div class="mt-4">
                 <label for="author">Nom de l&apos;author</label>
-                <input class="form-control" type="text" name="author" id="author" required>
+                <input class="form-control @error('author') is-invalid @enderror" type="text" name="author" id="author" value="{{old('author')}}">
+                @error('author')
+                    <div class="alert alert-danger"><small>{{$message}}</small></div>
+                @enderror
             </div>
             <div class="mt-4">
                 <label for="comment">Avis</label>
-                <textarea class="form-control" name="comment" id="comment" cols="20" rows="5" required></textarea>
+                <textarea class="form-control @error('comment') is-invalid @enderror" name="comment" id="comment" cols="20" rows="5">{{old('comment')}}</textarea>
+                @error('comment')
+                    <div class="alert alert-danger"><small>{{$message}}</small></div>
+                @enderror
             </div>
             <div class="mt-4">
                 <label for="rate">Note&lpar;0/20&rpar;</label>
-                <input class="form-control" min="0" max="20" type="number" name="rate" id="rate" required>
+                <input class="form-control @error('rate') is-invalid @enderror" min="0" max="20" type="number" name="rate" id="rate" value="{{old('rate')}}">
+                @error('rate')
+                    <div class="alert alert-danger"><small>{{$message}}</small></div>
+                @enderror
             </div>
-            <div class="mt-4 d-flex justify-content-end">
+            <div class="my-4 d-flex justify-content-end">
                 <button class="btn btn-primary" type="submit" title="Enregistrer nouveau livre">Enregistrer</button>
             </div>
         </form>

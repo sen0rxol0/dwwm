@@ -26,7 +26,7 @@
     </li>
 @endsection
 @section('content')
-    <div class="col-12">
+    <div class="col-12 d-flex flex-row justify-content-end">
         <a class="btn btn-link" href="{{route('books.create')}}">Ajouter nouveau livre</a>
     </div>
     <div class="col-12">
@@ -56,7 +56,6 @@
                                 <div>
                                     <a href="{{route('books.edit', ['id' => $book->id])}}" class="btn btn-sm btn-outline-secondary">Modifier</a>
                                     <a id="btn_delete_book-{{$book->id}}" href="{{route('books.delete', ['id' => $book->id])}}" class="btn btn-sm btn-outline-danger">Supprimer</a>
-
                                     <form action="{{route('books.delete', ['id' => $book->id])}}" method="POST" class="d-none">
                                         @csrf
                                         @method('DELETE')
@@ -67,6 +66,24 @@
                     @endforeach
                 </tbody>
             </table>
+
+            <nav aria-label="Nagivation des livres par page">
+                <ul class="pagination flex-row justify-content-end">
+                  <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Précédent">
+                      <span aria-hidden="true">&laquo;</span>
+                    </a>
+                  </li>
+                  <li class="page-item"><a class="page-link" href="#">1</a></li>
+                  <li class="page-item"><a class="page-link" href="#">2</a></li>
+                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                  <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Suivant">
+                      <span aria-hidden="true">&raquo;</span>
+                    </a>
+                  </li>
+                </ul>
+            </nav>
             @if (!count($books))
                 <small>Aucun livre dans les enregistrements.</small>
             @endif
