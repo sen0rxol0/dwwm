@@ -79,9 +79,9 @@
                 <tbody>
                     @foreach ($books as $book)
                         <tr>
-                            <td>{{$book->title}}</td>
-                            <td>{{$book->author}}</td>
-                            <td>{{$book->comment}}</td>
+                            <td style="max-width: 256px">{{$book->title}}</td>
+                            <td style="max-width: 256px">{{$book->author}}</td>
+                            <td><a class="btn btn-link btn-sm btn-outline-light" href="{{route('books.show', ['id' => $book->id])}}">Voir avis</a></td>
                             <td>{{$book->rate}}</td>
                             <td>{{$book->created_at->format('d/m/Y à H:m:s')}}</td>
                             <td>{{$book->updated_at->format('d/m/Y à H:m:s')}}</td>
@@ -99,24 +99,21 @@
                     @endforeach
                 </tbody>
             </table>
-
-            <nav aria-label="Nagivation des livres par page">
-                <ul class="pagination flex-row justify-content-end">
-                  <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Précédent">
-                      <span aria-hidden="true">&laquo;</span>
-                    </a>
-                  </li>
-                  <li class="page-item"><a class="page-link" href="#">1</a></li>
-                  <li class="page-item"><a class="page-link" href="#">2</a></li>
-                  <li class="page-item"><a class="page-link" href="#">3</a></li>
-                  <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Suivant">
-                      <span aria-hidden="true">&raquo;</span>
-                    </a>
-                  </li>
-                </ul>
-            </nav>
+            @if ($books->hasPages())
+                <nav aria-label="Nagivation des livres par page">
+                    <ul class="pagination flex-row justify-content-end">
+                    <li class="page-item">
+                        <a class="page-link" href="{{$books->previousPageUrl()}}" aria-label="Précédent"><span aria-hidden="true">&laquo;</span></a>
+                    </li>
+                    @for ($i = 1; $i <= $books->lastPage(); $i++)
+                        <li class="page-item"><a class="page-link" href="{{$books->url($i)}}">{{$i}}</a></li>
+                    @endfor
+                    <li class="page-item">
+                        <a class="page-link" href="{{$books->nextPageUrl()}}" aria-label="Suivant"><span aria-hidden="true">&raquo;</span></a>
+                    </li>
+                    </ul>
+                </nav>
+            @endif
             @if (!count($books))
                 <small>Aucun livre dans les enregistrements.</small>
             @endif

@@ -13,8 +13,9 @@ class BookController extends Controller
 {
     public function index() 
     {
+        $books = Book::paginate(30);
         return view('books.index', array(
-            'books' => Book::all()
+            'books' => $books
         ));
     }
     public function create()
@@ -29,6 +30,9 @@ class BookController extends Controller
             DB::table('authors')->insertOrIgnore([
                 'name' => $import['author']
             ]);
+            if (DB::table('books')->where('title', $import['title'])->count()) {
+                continue;
+            }
             $book = new Book([
                 'title' => $import['title'],
                 'slug' => Str::slug($import['title'], '-'),
@@ -38,6 +42,7 @@ class BookController extends Controller
             ]);
             $book->save();
         }
+        $request->session()->flash('status', 'Votre importation de livres a été un succès.');
         return response()->json(array('status' => 'Votre importation de livres a été un succès.'), 200);
     }
     public function store(Request $request)
